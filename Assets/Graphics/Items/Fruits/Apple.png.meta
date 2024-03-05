@@ -99,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -187,7 +187,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Apple_0
+      name: Idle (32x32)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -201,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8a08d8fa27377c4a953e5166a4e378a
-      internalID: 7293598183456022363
+      spriteID: 9f8df02b414a10040820a215c44e6727
+      internalID: -6367560908665664636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apple_1
+      name: Idle (32x32)_1
       rect:
         serializedVersion: 2
         x: 32
@@ -222,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f02a7fa3ffeb30a4199e0351b4344f8f
-      internalID: 3211865404380153573
+      spriteID: dad0842b0e1266744807b55c0a817173
+      internalID: -6056987297122131021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apple_2
+      name: Idle (32x32)_2
       rect:
         serializedVersion: 2
         x: 64
@@ -243,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06b3375f0ba8c0142b7aad447dbbbae3
-      internalID: 4808522734667448011
+      spriteID: 4e3f84f259babaa4ea505538a45b66ed
+      internalID: 8416797952724722639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apple_3
+      name: Idle (32x32)_3
       rect:
         serializedVersion: 2
         x: 96
@@ -264,14 +264,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 960f1f000bcb718488f0325a35b894a1
-      internalID: -8577097333041121892
+      spriteID: 51fcd6b3a4543b94ea4c4811239662dc
+      internalID: 4883129791460916795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apple_4
+      name: Idle (32x32)_4
       rect:
         serializedVersion: 2
         x: 128
@@ -285,14 +285,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37de86aa0dcf0a948ae6dd77bbbd73d9
-      internalID: 1419576285154770477
+      spriteID: 75075e22c2d8bdf4ea54d3710413f49d
+      internalID: 4278371960119211202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apple_5
+      name: Idle (32x32)_5
       rect:
         serializedVersion: 2
         x: 160
@@ -306,14 +306,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37705b0046b0cdb4f8be3391619ab868
-      internalID: -7706788487438311687
+      spriteID: cb91744552523df448d1a62b2bd5e6d2
+      internalID: 8644832591467991550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apple_6
+      name: Idle (32x32)_6
       rect:
         serializedVersion: 2
         x: 192
@@ -327,14 +327,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6944f29b9357660429c0802790c65fcb
-      internalID: 8638710384840876012
+      spriteID: 40985699053f8804ea4843a2904bc9f7
+      internalID: -7152759390613953277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apple_7
+      name: Idle (32x32)_7
       rect:
         serializedVersion: 2
         x: 224
@@ -348,14 +348,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3606c8283f75c0546bb0e1041976d1d6
-      internalID: -4689406079702324653
+      spriteID: a1d17ae02a318e244a8eaeec26b0cc96
+      internalID: 6456874251884481089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apple_8
+      name: Idle (32x32)_8
       rect:
         serializedVersion: 2
         x: 256
@@ -369,14 +369,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1addb6c313dfe2f4a99b92c0a7e0b5e6
-      internalID: -4804661220611782958
+      spriteID: 1ac4e0c793502554a944c33998522911
+      internalID: -2526832996998184344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apple_9
+      name: Idle (32x32)_9
       rect:
         serializedVersion: 2
         x: 288
@@ -390,14 +390,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 945871b795429e44886b112764cf3d89
-      internalID: 542562350195365616
+      spriteID: a70e682c3a4c4aa4ca1a9a808dc6b69b
+      internalID: 4392827059107796345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apple_10
+      name: Idle (32x32)_10
       rect:
         serializedVersion: 2
         x: 320
@@ -411,134 +411,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 454305dfe8422c24dbf414b73bb7af7c
-      internalID: 1535906679059638393
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apple_11
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dae896e063923c24fa64acad79e2d19b
-      internalID: -6207369124864647917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apple_12
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f6686c46dcdd1245804c5903fa45daa
-      internalID: 7209791866757004406
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apple_13
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2d678a7f900dbf4dab4f5f0eed8a0d9
-      internalID: -1462588236305530756
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apple_14
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0455f04e92d89db4cbe14eeed5e6a856
-      internalID: 4023135878370671054
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apple_15
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48ed5cdde0c68304fa1241c934611c5d
-      internalID: -337911150936919937
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apple_16
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab2a044731e611b40bfe5447aa3bc978
-      internalID: 9139289913481491577
+      spriteID: e54d2aec81408fc4e98c548b032c655a
+      internalID: -1363835404106015672
       vertices: []
       indices: 
       edges: []
@@ -554,23 +428,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Apple_0: 7293598183456022363
-      Apple_1: 3211865404380153573
-      Apple_10: 1535906679059638393
-      Apple_11: -6207369124864647917
-      Apple_12: 7209791866757004406
-      Apple_13: -1462588236305530756
-      Apple_14: 4023135878370671054
-      Apple_15: -337911150936919937
-      Apple_16: 9139289913481491577
-      Apple_2: 4808522734667448011
-      Apple_3: -8577097333041121892
-      Apple_4: 1419576285154770477
-      Apple_5: -7706788487438311687
-      Apple_6: 8638710384840876012
-      Apple_7: -4689406079702324653
-      Apple_8: -4804661220611782958
-      Apple_9: 542562350195365616
+      Idle (32x32)_0: -6367560908665664636
+      Idle (32x32)_1: -6056987297122131021
+      Idle (32x32)_10: -1363835404106015672
+      Idle (32x32)_2: 8416797952724722639
+      Idle (32x32)_3: 4883129791460916795
+      Idle (32x32)_4: 4278371960119211202
+      Idle (32x32)_5: 8644832591467991550
+      Idle (32x32)_6: -7152759390613953277
+      Idle (32x32)_7: 6456874251884481089
+      Idle (32x32)_8: -2526832996998184344
+      Idle (32x32)_9: 4392827059107796345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

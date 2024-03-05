@@ -99,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -187,7 +187,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bananas_0
+      name: Idle (32x32)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -201,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ca23518b492cf744a336833121ee22c
-      internalID: -5728686177044832811
+      spriteID: 9f8df02b414a10040820a215c44e6727
+      internalID: -6367560908665664636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bananas_1
+      name: Idle (32x32)_1
       rect:
         serializedVersion: 2
         x: 32
@@ -222,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73680ae4d6de91448999314e00c6798d
-      internalID: -5786164333596270976
+      spriteID: dad0842b0e1266744807b55c0a817173
+      internalID: -6056987297122131021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bananas_2
+      name: Idle (32x32)_2
       rect:
         serializedVersion: 2
         x: 64
@@ -243,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96ca4fcac6d13b34fb8a70f1bb5f1041
-      internalID: 5546440197654754675
+      spriteID: 4e3f84f259babaa4ea505538a45b66ed
+      internalID: 8416797952724722639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bananas_3
+      name: Idle (32x32)_3
       rect:
         serializedVersion: 2
         x: 96
@@ -264,14 +264,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8cdb555fdf0bbc419fddd3d4777ef98
-      internalID: -716424211456008518
+      spriteID: 51fcd6b3a4543b94ea4c4811239662dc
+      internalID: 4883129791460916795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bananas_4
+      name: Idle (32x32)_4
       rect:
         serializedVersion: 2
         x: 128
@@ -285,14 +285,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b429e257e0c0bf44b14a4748639d562
-      internalID: -5292413800997781641
+      spriteID: 75075e22c2d8bdf4ea54d3710413f49d
+      internalID: 4278371960119211202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bananas_5
+      name: Idle (32x32)_5
       rect:
         serializedVersion: 2
         x: 160
@@ -306,14 +306,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c22e41c025853bf48ae24fc1797dd514
-      internalID: -7253148436187668049
+      spriteID: cb91744552523df448d1a62b2bd5e6d2
+      internalID: 8644832591467991550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bananas_6
+      name: Idle (32x32)_6
       rect:
         serializedVersion: 2
         x: 192
@@ -327,14 +327,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f504a9a73fc426a439f26a4dc407e100
-      internalID: 8575041284972176386
+      spriteID: 40985699053f8804ea4843a2904bc9f7
+      internalID: -7152759390613953277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bananas_7
+      name: Idle (32x32)_7
       rect:
         serializedVersion: 2
         x: 224
@@ -348,14 +348,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0144ab7eab88db4e887af2a9a82dacd
-      internalID: 3604655966176598788
+      spriteID: a1d17ae02a318e244a8eaeec26b0cc96
+      internalID: 6456874251884481089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bananas_8
+      name: Idle (32x32)_8
       rect:
         serializedVersion: 2
         x: 256
@@ -369,14 +369,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a29bdd66638a744b8967d48a8664a72
-      internalID: -6630629338061711003
+      spriteID: 1ac4e0c793502554a944c33998522911
+      internalID: -2526832996998184344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bananas_9
+      name: Idle (32x32)_9
       rect:
         serializedVersion: 2
         x: 288
@@ -390,14 +390,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5768a9950ba56094f86a82b4bd38823a
-      internalID: -8491821694155768140
+      spriteID: a70e682c3a4c4aa4ca1a9a808dc6b69b
+      internalID: 4392827059107796345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bananas_10
+      name: Idle (32x32)_10
       rect:
         serializedVersion: 2
         x: 320
@@ -411,134 +411,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a64a01fc99b4384d9119ed9cc2e56d9
-      internalID: 8303107455315256833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bananas_11
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6631b85380068847b5b047b88fc1a8b
-      internalID: -7266015010218627371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bananas_12
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 715f91e4dbbbcac4c8496a1396459f29
-      internalID: -5455066603935629110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bananas_13
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b7664d443bb64e46bc62bcd30e9b676
-      internalID: -1347183766120132532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bananas_14
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d0a1ee67e2604b4ca338f03579ae268
-      internalID: 3310116166248368309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bananas_15
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 171254829e51aaa4695b59b6df9a4085
-      internalID: 7601917565207802943
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bananas_16
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52e1f03f353d6d047985661e75ee9479
-      internalID: -8288679156529735154
+      spriteID: e54d2aec81408fc4e98c548b032c655a
+      internalID: -1363835404106015672
       vertices: []
       indices: 
       edges: []
@@ -554,23 +428,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bananas_0: -5728686177044832811
-      Bananas_1: -5786164333596270976
-      Bananas_10: 8303107455315256833
-      Bananas_11: -7266015010218627371
-      Bananas_12: -5455066603935629110
-      Bananas_13: -1347183766120132532
-      Bananas_14: 3310116166248368309
-      Bananas_15: 7601917565207802943
-      Bananas_16: -8288679156529735154
-      Bananas_2: 5546440197654754675
-      Bananas_3: -716424211456008518
-      Bananas_4: -5292413800997781641
-      Bananas_5: -7253148436187668049
-      Bananas_6: 8575041284972176386
-      Bananas_7: 3604655966176598788
-      Bananas_8: -6630629338061711003
-      Bananas_9: -8491821694155768140
+      Idle (32x32)_0: -6367560908665664636
+      Idle (32x32)_1: -6056987297122131021
+      Idle (32x32)_10: -1363835404106015672
+      Idle (32x32)_2: 8416797952724722639
+      Idle (32x32)_3: 4883129791460916795
+      Idle (32x32)_4: 4278371960119211202
+      Idle (32x32)_5: 8644832591467991550
+      Idle (32x32)_6: -7152759390613953277
+      Idle (32x32)_7: 6456874251884481089
+      Idle (32x32)_8: -2526832996998184344
+      Idle (32x32)_9: 4392827059107796345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
