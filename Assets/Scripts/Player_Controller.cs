@@ -12,18 +12,21 @@ public class Player_Controller : MonoBehaviour
 
     private float _movingInput;
     private bool canDoubleJump = true;
+    private bool canMove;
+
+    public Vector2 wallJumpDirection;
 
     private bool _facingRight = true;
     private int _facindDirection = 1;
 
-    [Header("RayCast")]
-
+    [Header("Collision Info")]
     [SerializeField] float _groundCheckDistance;
-    [SerializeField] private bool _isGrounded;
     [SerializeField] float _wallCheckDistance;
-    [SerializeField] private bool _isWallSliding;
     public LayerMask what_is_ground;
-
+    [SerializeField] private bool _isGrounded;
+    [SerializeField] private bool _isWallDetected;
+    [SerializeField] private bool _canWallSlide;
+    [SerializeField] private bool _isWallSliding;
 
 
 
@@ -44,10 +47,18 @@ public class Player_Controller : MonoBehaviour
         if (_isGrounded)
         {
             canDoubleJump = true;
+            canMove = true;
+        }
+
+        if (_canWallSlide)
+        {
+            _isWallSliding = true;
+            
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.1f);
         }
 
         Move();
-       
+
         Flip_Controller();
     }
 
@@ -57,12 +68,19 @@ public class Player_Controller : MonoBehaviour
 
         _player_AnimatorController.SetBool("isMoving", isMoving);
         _player_AnimatorController.SetBool("isGrounded", _isGrounded);
+        _player_AnimatorController.SetBool("isWallSliding", _isWallSliding);
+        _player_AnimatorController.SetBool("isWallDetected", _isWallDetected);
         _player_AnimatorController.SetFloat("yVelocity", _rb.velocity.y);
     }
 
     private void Input_Checks()
     {
-        _movingInput = Input.GetAxisRaw("Horizontal");
+        _movingInput = Input.GetAxis("Horizontal");
+
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            _canWallSlide = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -72,11 +90,11 @@ public class Player_Controller : MonoBehaviour
 
     private void Flip_Controller()
     {
-        if(_facingRight && _movingInput < 0)
+        if(_facingRight && _rb.velocity.x < 0)
         {
             Flip();
         }
-        else if (!_facingRight && _movingInput > 0)
+        else if (!_facingRight && _rb.velocity.x > 0)
         {
             Flip();
         }
@@ -91,22 +109,37 @@ public class Player_Controller : MonoBehaviour
 
     private void Jump_Button()
     {
-        if (_isGrounded)
+        if (_isWallSliding)
+        {
+            Wall_Jump();
+        }
+
+        else if (_isGrounded)
         {
             Jump();
         }
+
         else if (canDoubleJump)
         {
             canDoubleJump = false;
             Jump();
         }
+
+        _canWallSlide = false;
     }
         
     private void Move()
     {
-        _rb.velocity = new Vector2(_movingInput * _moveSpeed, _rb.velocity.y);
+        if(canMove)
+            _rb.velocity = new Vector2(_movingInput * _moveSpeed, _rb.velocity.y);
     }
 
+    private void Wall_Jump()
+    {
+        canMove = false;
+
+        _rb.velocity = new Vector2(wallJumpDirection.x * -_facindDirection, wallJumpDirection.y);
+    }
 
     private void Jump()
     {
@@ -115,7 +148,18 @@ public class Player_Controller : MonoBehaviour
     private void Collisiion_Check()
     {
         _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, _groundCheckDistance, what_is_ground);
-        _isWallSliding = Physics2D.Raycast(transform.position, Vector2.right * _facindDirection, _wallCheckDistance, what_is_ground);
+        _isWallDetected = Physics2D.Raycast(transform.position, Vector2.right * _facindDirection, _wallCheckDistance, what_is_ground);
+
+        if(_isWallDetected && _rb.velocity.y < 0)
+        {
+            _canWallSlide = true;
+        }
+
+        if (!_isWallDetected)
+        {
+            _canWallSlide = false;
+            _isWallSliding = false;
+        }
     }
 
     private void OnDrawGizmos()
