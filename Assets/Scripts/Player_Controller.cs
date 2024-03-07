@@ -16,11 +16,14 @@ public class Player_Controller : MonoBehaviour
     private bool _facingRight = true;
     private int _facindDirection = 1;
 
-    [Header("RayCast Ground")]
+    [Header("RayCast")]
 
     [SerializeField] float _groundCheckDistance;
     [SerializeField] private bool _isGrounded;
+    [SerializeField] float _wallCheckDistance;
+    [SerializeField] private bool _isWallSliding;
     public LayerMask what_is_ground;
+
 
 
 
@@ -112,10 +115,12 @@ public class Player_Controller : MonoBehaviour
     private void Collisiion_Check()
     {
         _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, _groundCheckDistance, what_is_ground);
+        _isWallSliding = Physics2D.Raycast(transform.position, Vector2.right * _facindDirection, _wallCheckDistance, what_is_ground);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - _groundCheckDistance, transform.position.y));
+        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + _wallCheckDistance * _facindDirection, transform.position.y));
     }
 }
