@@ -28,8 +28,6 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private bool _canWallSlide;
     [SerializeField] private bool _isWallSliding;
 
-
-
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
