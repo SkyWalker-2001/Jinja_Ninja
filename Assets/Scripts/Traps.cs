@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Traps : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Player_Controller>() != null)
         {
