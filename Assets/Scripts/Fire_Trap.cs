@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fire_Trap : Traps
 {
     public bool isWorking;
-    public bool hasSwitcher;
+    //public bool hasSwitcher;
     public float repeatRate;
 
     private Animator fireTrap_animator;
@@ -14,8 +14,13 @@ public class Fire_Trap : Traps
     {
         fireTrap_animator = GetComponent<Animator>();
 
-        if(!hasSwitcher)
+        if(transform.parent == null)
             InvokeRepeating("FireSwitch", 0, repeatRate);
+        //{
+            //hasSwitcher = true;
+        //}
+
+        //if(!hasSwitcher)
     }
 
     private void Update()
@@ -30,7 +35,8 @@ public class Fire_Trap : Traps
 
     public void FireSwitchAfter(float second)
     {
-        FireSwitch();
+        CancelInvoke();
+        isWorking = false;
         Invoke("FireSwitch", second);
     }
 
