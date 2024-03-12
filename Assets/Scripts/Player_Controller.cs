@@ -15,7 +15,10 @@ public class Player_Controller : MonoBehaviour
     private bool canMove;
 
     public Vector2 wallJumpDirection;
+    public float doubleJumpForce;
 
+    private float defaultJumpForce;
+     
     private bool _facingRight = true;
     private int _facindDirection = 1;
 
@@ -28,10 +31,19 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private bool _canWallSlide;
     [SerializeField] private bool _isWallSliding;
 
+    [SerializeField] private float _bufferJumpTime;
+                     private float _bufferJumpCounter;
+
+    [SerializeField] private float _cayoteJumpTimer;
+                     private float _cayoteJumpCounter;
+                     private bool _canHaveCayoteJump;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _player_AnimatorController = GetComponent<Animator>();
+
+        defaultJumpForce = _jumpForce;
     }
 
     private void Update()
@@ -42,10 +54,29 @@ public class Player_Controller : MonoBehaviour
 
         Input_Checks();
 
+        _bufferJumpCounter -= Time.deltaTime;
+        _cayoteJumpCounter -= Time.deltaTime;
+
         if (_isGrounded)
         {
             canDoubleJump = true;
             canMove = true;
+
+            if(_bufferJumpCounter > 0)
+            {
+                _bufferJumpCounter = -1;
+                Jump();
+            }
+
+            _canHaveCayoteJump = true;
+        }
+        else
+        {
+            if(_canHaveCayoteJump)
+            {
+                _canHaveCayoteJump = false;
+                _cayoteJumpCounter = _cayoteJumpTimer;
+            }
         }
 
         if (_canWallSlide)
@@ -107,20 +138,29 @@ public class Player_Controller : MonoBehaviour
 
     private void Jump_Button()
     {
+        if (!_isGrounded)
+        {
+            _bufferJumpCounter = _bufferJumpTime;
+        }
+
         if (_isWallSliding)
         {
             Wall_Jump();
+            canDoubleJump = true;
         }
 
-        else if (_isGrounded)
+        else if (_isGrounded || _cayoteJumpCounter > 0 )
         {
             Jump();
         }
 
         else if (canDoubleJump)
         {
+            canMove = true;
             canDoubleJump = false;
+            _jumpForce = doubleJumpForce;
             Jump();
+            _jumpForce = defaultJumpForce;
         }
 
         _canWallSlide = false;

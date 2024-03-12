@@ -3522,6 +3522,7 @@ MonoBehaviour:
   _moveSpeed: 7
   _jumpForce: 12
   wallJumpDirection: {x: 5, y: 13}
+  doubleJumpForce: 8
   _groundCheckDistance: 1.11
   _wallCheckDistance: 0.786
   what_is_ground:
@@ -3531,6 +3532,8 @@ MonoBehaviour:
   _isWallDetected: 0
   _canWallSlide: 0
   _isWallSliding: 0
+  _bufferJumpTime: 0.1
+  _cayoteJumpTimer: 0.15
 --- !u!212 &356465087
 SpriteRenderer:
   m_ObjectHideFlags: 0
