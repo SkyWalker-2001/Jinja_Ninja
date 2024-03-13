@@ -8,7 +8,20 @@ public class Traps : MonoBehaviour
     {
         if (collision.GetComponent<Player_Controller>() != null)
         {
-            Debug.Log("KnockDown");
+            Player_Controller player = collision.GetComponent<Player_Controller>();
+
+            if(player.transform.position.x > transform.position.x)
+            {
+                player.KnockBack(1);
+            }
+            else if(player.transform.position.x < transform.position.x)
+            {
+                player.KnockBack(-1);
+            }
+            else
+            {
+                player.KnockBack(0);
+            }
         }
 
     }

@@ -38,6 +38,14 @@ public class Player_Controller : MonoBehaviour
                      private float _cayoteJumpCounter;
                      private bool _canHaveCayoteJump;
 
+    [Header("KnockBacked")]
+    [SerializeField] private Vector2 _knockBackDirection;
+    [SerializeField] private float _knockbackTime;
+    [SerializeField] private float _knockbackProtectionTime;
+                     private bool _isKnocked; 
+                     private bool canBeKnocked = true;
+
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -49,6 +57,13 @@ public class Player_Controller : MonoBehaviour
     private void Update()
     {
         AnimationController();
+
+        if (_isKnocked)
+        {
+            return;
+        }
+
+        // no further execution ///  Knockback function Player
 
         Collisiion_Check();
 
@@ -95,6 +110,7 @@ public class Player_Controller : MonoBehaviour
     {
         bool isMoving = _rb.velocity.x != 0;
 
+        _player_AnimatorController.SetBool("isKnocked", _isKnocked);
         _player_AnimatorController.SetBool("isMoving", isMoving);
         _player_AnimatorController.SetBool("isGrounded", _isGrounded);
         _player_AnimatorController.SetBool("isWallSliding", _isWallSliding);
@@ -155,7 +171,7 @@ public class Player_Controller : MonoBehaviour
         }
 
         else if (canDoubleJump)
-        {
+        {   
             canMove = true;
             canDoubleJump = false;
             _jumpForce = doubleJumpForce;
@@ -164,6 +180,31 @@ public class Player_Controller : MonoBehaviour
         }
 
         _canWallSlide = false;
+    }
+
+    public void KnockBack(int direction)
+    {
+        if (!canBeKnocked)
+        {
+            return;
+        }
+        _isKnocked = true;
+        canBeKnocked = false; 
+
+        _rb.velocity = new Vector2(_knockBackDirection.x * direction, _knockBackDirection.y);
+
+        Invoke("CancelKnock", _knockbackTime);
+        Invoke("AllowKnockBack", _knockbackProtectionTime);
+    }
+
+    private void CancelKnock()
+    {
+        _isKnocked = false;
+    }
+
+    private void AllowKnockBack()
+    {
+        canBeKnocked = true;
     }
         
     private void Move()
