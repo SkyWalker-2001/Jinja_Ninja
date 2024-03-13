@@ -25,11 +25,13 @@ public class Player_Controller : MonoBehaviour
     [Header("Collision Info")]
     [SerializeField] float _groundCheckDistance;
     [SerializeField] float _wallCheckDistance;
-    public LayerMask what_is_ground;
-    [SerializeField] private bool _isGrounded;
-    [SerializeField] private bool _isWallDetected;
-    [SerializeField] private bool _canWallSlide;
-    [SerializeField] private bool _isWallSliding;
+    [SerializeField] public LayerMask what_is_ground;
+    [SerializeField] private Transform enemyCheck;
+    [SerializeField] private float enemyCheckRadius; 
+    private bool _isGrounded;
+    private bool _isWallDetected;
+    private bool _canWallSlide;
+    private bool _isWallSliding;
 
     [SerializeField] private float _bufferJumpTime;
                      private float _bufferJumpCounter;
@@ -69,6 +71,8 @@ public class Player_Controller : MonoBehaviour
 
         Input_Checks();
 
+        CheckForEnemy();
+
         _bufferJumpCounter -= Time.deltaTime;
         _cayoteJumpCounter -= Time.deltaTime;
 
@@ -77,7 +81,7 @@ public class Player_Controller : MonoBehaviour
             canDoubleJump = true;
             canMove = true;
 
-            if(_bufferJumpCounter > 0)
+            if (_bufferJumpCounter > 0)
             {
                 _bufferJumpCounter = -1;
                 Jump();
@@ -87,7 +91,7 @@ public class Player_Controller : MonoBehaviour
         }
         else
         {
-            if(_canHaveCayoteJump)
+            if (_canHaveCayoteJump)
             {
                 _canHaveCayoteJump = false;
                 _cayoteJumpCounter = _cayoteJumpTimer;
@@ -97,13 +101,32 @@ public class Player_Controller : MonoBehaviour
         if (_canWallSlide)
         {
             _isWallSliding = true;
-            
+
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.1f);
         }
 
         Move();
 
         Flip_Controller();
+    }
+
+    private void CheckForEnemy()
+    {
+        // Enemy
+
+        Collider2D[] hitedColliders = Physics2D.OverlapCircleAll(enemyCheck.position, enemyCheckRadius);
+
+        foreach (var enemy in hitedColliders)
+        {
+            if (enemy.GetComponent<Enemy>() != null)
+            {
+                if(_rb.velocity.y < 0)
+                {
+                    enemy.GetComponent<Enemy>().Damage();
+                    Jump();
+                }
+            }
+        }
     }
 
     private void AnimationController()
@@ -182,16 +205,31 @@ public class Player_Controller : MonoBehaviour
         _canWallSlide = false;
     }
 
-    public void KnockBack(int direction)
+    public void KnockBack(Transform damageTransform)
     {
         if (!canBeKnocked)
         {
             return;
         }
         _isKnocked = true;
-        canBeKnocked = false; 
+        canBeKnocked = false;
 
-        _rb.velocity = new Vector2(_knockBackDirection.x * direction, _knockBackDirection.y);
+        #region KNOCKBACK DIRECTION
+
+        int hDirection = 0;
+
+        if (transform.position.x > damageTransform.position.x)
+        {
+            hDirection = 1;
+        }
+        else if (transform.position.x < damageTransform.position.x)
+        {
+            hDirection = -1;
+        }
+        #endregion
+
+        _rb.velocity = new Vector2(_knockBackDirection.x * hDirection, _knockBackDirection.y);
+
 
         Invoke("CancelKnock", _knockbackTime);
         Invoke("AllowKnockBack", _knockbackProtectionTime);
@@ -224,6 +262,7 @@ public class Player_Controller : MonoBehaviour
     {
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
     }
+
     private void Collisiion_Check()
     {
         _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, _groundCheckDistance, what_is_ground);
@@ -239,11 +278,12 @@ public class Player_Controller : MonoBehaviour
             _canWallSlide = false;
             _isWallSliding = false;
         }
-    }
+    }   
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - _groundCheckDistance, transform.position.y));
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + _wallCheckDistance * _facindDirection, transform.position.y));
+        Gizmos.DrawWireSphere(enemyCheck.position, enemyCheckRadius);
     }
 }

@@ -10,18 +10,7 @@ public class Traps : MonoBehaviour
         {
             Player_Controller player = collision.GetComponent<Player_Controller>();
 
-            if(player.transform.position.x > transform.position.x)
-            {
-                player.KnockBack(1);
-            }
-            else if(player.transform.position.x < transform.position.x)
-            {
-                player.KnockBack(-1);
-            }
-            else
-            {
-                player.KnockBack(0);
-            }
+            player.KnockBack(transform); 
         }
 
     }
