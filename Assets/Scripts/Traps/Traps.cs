@@ -9,7 +9,6 @@ public class Traps : MonoBehaviour
         if (collision.GetComponent<Player_Controller>() != null)
         {
             Player_Controller player = collision.GetComponent<Player_Controller>();
-
             player.KnockBack(transform); 
         }
 
