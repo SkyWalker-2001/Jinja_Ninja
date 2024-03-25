@@ -26,8 +26,12 @@ public class Enemy : MonoBehaviour
 
     public void Damage()
     {
-        Debug.Log("asd");
-        Destroy(gameObject);
+        anim.SetTrigger("gotHit");
+    }
+
+    public void Destroy_Me()
+    {
+        Destroy(this.gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
