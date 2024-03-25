@@ -34,15 +34,16 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.GetComponent<Player_Controller>() != null)
+        if (collision.GetComponent<Player_Controller>() != null)
         {
-            Player_Controller player = collision.collider.GetComponent<Player_Controller>();
+            Player_Controller player = collision.GetComponent<Player_Controller>();
 
             player.KnockBack(transform);
         }
     }
+
 
     protected virtual void Flip()
     {
