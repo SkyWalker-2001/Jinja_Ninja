@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mushroom_Enemy : Enemy
+public class Rhino_Enemy : Enemy
 {
-
+    
     [Header("Move Info")]
     [SerializeField] private float speed;
     [SerializeField] private float idleTime = 2f;
@@ -17,7 +17,7 @@ public class Mushroom_Enemy : Enemy
 
     private void Update()
     {
-        if(idleTimeCounter <= 0)
+        if (idleTimeCounter <= 0)
         {
             rb.velocity = new Vector2(speed * _facindDirection, rb.velocity.y);
         }

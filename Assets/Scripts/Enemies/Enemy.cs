@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D rb;
     protected Animator anim;
 
-    protected int _facindDirection = 1;
+    // -1 If the Sprite Facing Left Side
+    protected int _facindDirection = -1;
 
     [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] protected float groundCheckDistance;
@@ -18,6 +19,8 @@ public class Enemy : MonoBehaviour
     protected bool wallDetected;
     protected bool groundDetected;
 
+    public bool invincible;
+
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,7 +29,8 @@ public class Enemy : MonoBehaviour
 
     public void Damage()
     {
-        anim.SetTrigger("gotHit");
+        if(invincible)
+            anim.SetTrigger("gotHit");
     }
 
     public void Destroy_Me()
