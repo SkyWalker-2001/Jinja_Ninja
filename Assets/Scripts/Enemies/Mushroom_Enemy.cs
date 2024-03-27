@@ -19,7 +19,7 @@ public class Mushroom_Enemy : Enemy
     {
         if(idleTimeCounter <= 0)
         {
-            rb.velocity = new Vector2(speed * _facindDirection, rb.velocity.y);
+            rb.velocity = new Vector2(speed * _facingDirection, rb.velocity.y);
         }
         else
         {

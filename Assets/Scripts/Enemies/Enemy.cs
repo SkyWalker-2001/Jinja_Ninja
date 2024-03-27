@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     protected Animator anim;
 
     // -1 If the Sprite Facing Left Side
-    protected int _facindDirection = -1;
+    protected int _facingDirection = -1;
 
     [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] protected float groundCheckDistance;
@@ -53,19 +53,19 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Flip()
     {
-        _facindDirection = _facindDirection * -1;
+        _facingDirection = _facingDirection * -1;
         transform.Rotate(0, 180, 0);
     }
 
     protected virtual void CheckCollision()
     {
         groundDetected = Physics2D.Raycast(groundCheck .position, Vector2.down, groundCheckDistance, whatIsGround);
-        wallDetected = Physics2D.Raycast(wallCheck .position, Vector2.right * _facindDirection, wallCheckDistance, whatIsGround);
+        wallDetected = Physics2D.Raycast(wallCheck .position, Vector2.right * _facingDirection, wallCheckDistance, whatIsGround);
     }
 
     protected virtual void OnDrawGizmos()
     {
         Gizmos.DrawLine(groundCheck.position, new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
-        Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + wallCheckDistance * _facindDirection, wallCheck.position.y));
+        Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + wallCheckDistance * _facingDirection, wallCheck.position.y));
     }
 }
