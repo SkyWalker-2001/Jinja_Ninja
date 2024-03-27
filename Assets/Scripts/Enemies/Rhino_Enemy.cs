@@ -10,13 +10,20 @@ public class Rhino_Enemy : Enemy
     [SerializeField] private float idleTime = 2f;
                      private float idleTimeCounter;
 
+    private bool isAggresive;
+
     protected override void Start()
     {
         base.Start();
+        invincible = true;
     }
 
     private void Update()
     {
+        if(!isAggresive)
+        {
+
+        
         if (idleTimeCounter <= 0)
         {
             rb.velocity = new Vector2(speed * _facindDirection, rb.velocity.y);
@@ -28,14 +35,15 @@ public class Rhino_Enemy : Enemy
 
         idleTimeCounter -= Time.deltaTime;
 
-        CheckCollision();
 
         if (wallDetected || !groundDetected)
         {
             idleTimeCounter = idleTime;
             Flip();
         }
+        }
 
+        CheckCollision();
         anim.SetFloat("xVelocity", rb.velocity.x);
     }
 }

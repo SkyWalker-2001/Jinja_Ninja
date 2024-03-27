@@ -29,8 +29,10 @@ public class Enemy : MonoBehaviour
 
     public void Damage()
     {
-        if(invincible)
+        if (!invincible)
+        {
             anim.SetTrigger("gotHit");
+        }
     }
 
     public void Destroy_Me()
