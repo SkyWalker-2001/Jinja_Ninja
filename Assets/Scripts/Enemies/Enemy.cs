@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] protected LayerMask whatToIgnore;
 
-
+    protected bool canMove = true;
 
     protected virtual void Start()
     {
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void WalkAround()
     {
-        if (idleTimeCounter <= 0)
+        if (idleTimeCounter <= 0 && canMove)
         {
             rb.velocity = new Vector2(speed * _facingDirection, rb.velocity.y);
         }
@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour
     {
         if (!invincible)
         {
+            canMove = false;
             anim.SetTrigger("gotHit");
         }
     }
