@@ -3,16 +3,13 @@ using UnityEngine;
 public class Rhino_Enemy : Enemy
 {
 
-    [Header("Move Info")]
-    [SerializeField] private float speed;
+    [Header("Rhino Info")]
     [SerializeField] private float aggresive_Speed;
-    [SerializeField] private float idleTime = 2f;
-                     private float idleTimeCounter;
+
 
     [SerializeField] private float shockTime;
-                     private float shockTimeCounter;
+    private float shockTimeCounter;
 
-    [SerializeField] private LayerMask whatToIgnore;
 
     private RaycastHit2D playerDetection;
     private bool isAggresive;
@@ -33,24 +30,7 @@ public class Rhino_Enemy : Enemy
         if (!isAggresive)
         {
 
-
-            if (idleTimeCounter <= 0)
-            {
-                rb.velocity = new Vector2(speed * _facingDirection, rb.velocity.y);
-            }
-            else
-            {
-                rb.velocity = Vector2.zero;
-            }
-
-            idleTimeCounter -= Time.deltaTime;
-
-
-            if (wallDetected || !groundDetected)
-            {
-                idleTimeCounter = idleTime;
-                Flip();
-            }
+            WalkAround();
         }
 
         else

@@ -5,10 +5,7 @@ using UnityEngine;
 public class Mushroom_Enemy : Enemy
 {
 
-    [Header("Move Info")]
-    [SerializeField] private float speed;
-    [SerializeField] private float idleTime = 2f;
-                     private float idleTimeCounter;
+  
 
     protected override void Start()
     {
@@ -17,24 +14,9 @@ public class Mushroom_Enemy : Enemy
 
     private void Update()
     {
-        if(idleTimeCounter <= 0)
-        {
-            rb.velocity = new Vector2(speed * _facingDirection, rb.velocity.y);
-        }
-        else
-        {
-            rb.velocity = Vector2.zero;
-        }
-
-        idleTimeCounter -= Time.deltaTime;
+        WalkAround();
 
         CheckCollision();
-
-        if (wallDetected || !groundDetected)
-        {
-            idleTimeCounter = idleTime;
-            Flip();
-        }
 
         anim.SetFloat("xVelocity", rb.velocity.x);
     }

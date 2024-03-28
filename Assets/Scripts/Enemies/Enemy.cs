@@ -19,7 +19,16 @@ public class Enemy : MonoBehaviour
     protected bool wallDetected;
     protected bool groundDetected;
 
-    public bool invincible;
+    [HideInInspector] public bool invincible;
+
+    [Header("Move Info")]
+    [SerializeField] protected float speed;
+    [SerializeField] protected float idleTime = 2f;
+                     protected float idleTimeCounter;
+
+    [SerializeField] protected LayerMask whatToIgnore;
+
+
 
     protected virtual void Start()
     {
@@ -27,7 +36,28 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void Damage()
+    protected virtual void WalkAround()
+    {
+        if (idleTimeCounter <= 0)
+        {
+            rb.velocity = new Vector2(speed * _facingDirection, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
+
+        idleTimeCounter -= Time.deltaTime;
+
+
+        if (wallDetected || !groundDetected)
+        {
+            idleTimeCounter = idleTime;
+            Flip();
+        }
+    }
+
+    public virtual void Damage()
     {
         if (!invincible)
         {
