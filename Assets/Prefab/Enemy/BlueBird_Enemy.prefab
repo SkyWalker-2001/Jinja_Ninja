@@ -201,6 +201,9 @@ MonoBehaviour:
   groundDistance: 2
   flyUpForce: 4.5
   flyDownForce: 2.5
+  movePoint: {fileID: 0}
+  xMultiplier: 0.5
+  yMultiplier: 1.5
 --- !u!1 &3898784278876344113
 GameObject:
   m_ObjectHideFlags: 0
