@@ -15,8 +15,6 @@ public class Radish_Enemy : Enemy
                      private float agroTimeCounter;
 
 
-    [HideInInspector] private bool aggresive;
-
     [SerializeField] private float flyForce;
 
     protected override void Start()

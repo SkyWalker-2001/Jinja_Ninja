@@ -12,7 +12,6 @@ public class Rhino_Enemy : Enemy
 
 
     private RaycastHit2D playerDetection;
-    private bool isAggresive;
 
     protected override void Start()
     {
@@ -25,9 +24,9 @@ public class Rhino_Enemy : Enemy
         playerDetection = Physics2D.Raycast(wallCheck.position, Vector2.right * _facingDirection, 25, ~whatToIgnore);
 
         if (playerDetection.collider.GetComponent<Player_Controller>() != null)
-            isAggresive = true;
+            aggresive = true;
 
-        if (!isAggresive)
+        if (!aggresive)
         {
 
             WalkAround();
@@ -47,7 +46,7 @@ public class Rhino_Enemy : Enemy
             {
                 invincible = true;
                 Flip();
-                isAggresive = false;
+                aggresive = false;
             }
         }
 
