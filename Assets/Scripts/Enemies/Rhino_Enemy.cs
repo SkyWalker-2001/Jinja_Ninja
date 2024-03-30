@@ -11,7 +11,6 @@ public class Rhino_Enemy : Enemy
     private float shockTimeCounter;
 
 
-    private RaycastHit2D playerDetection;
 
     protected override void Start()
     {
@@ -21,7 +20,6 @@ public class Rhino_Enemy : Enemy
 
     private void Update()
     {
-        playerDetection = Physics2D.Raycast(wallCheck.position, Vector2.right * _facingDirection, 25, ~whatToIgnore);
 
         if (playerDetection.collider.GetComponent<Player_Controller>() != null)
             aggresive = true;
@@ -62,10 +60,5 @@ public class Rhino_Enemy : Enemy
         anim.SetFloat("xVelocity", rb.velocity.x);
     }
 
-    protected override void OnDrawGizmos()
-    {
-        base.OnDrawGizmos(); 
 
-        Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + playerDetection.distance * _facingDirection, wallCheck.position.y));
-    }
 }
