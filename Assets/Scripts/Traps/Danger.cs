@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Traps : MonoBehaviour
+public class Danger : MonoBehaviour
 {
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {

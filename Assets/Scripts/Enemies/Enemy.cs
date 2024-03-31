@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Danger
 {
     protected Rigidbody2D rb;
     protected Animator anim;
@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
     {
         groundDetected = Physics2D.Raycast(groundCheck .position, Vector2.down, groundCheckDistance, whatIsGround);
         wallDetected = Physics2D.Raycast(wallCheck .position, Vector2.right * _facingDirection, wallCheckDistance, whatIsGround);
-        playerDetection = Physics2D.Raycast(wallCheck.position, Vector2.right * _facingDirection, 25, ~whatToIgnore);
+        playerDetection = Physics2D.Raycast(wallCheck.position, Vector2.right * _facingDirection, 100, ~whatToIgnore);
 
     }
 
