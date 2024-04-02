@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Danger
 {
     protected Rigidbody2D rb;
     protected Animator anim;
@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float wallCheckDistance;
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected Transform wallCheck;
+
+    protected RaycastHit2D playerDetection;
 
     protected bool wallDetected;
     protected bool groundDetected;
@@ -35,6 +37,11 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        if (groundCheck == null)
+            groundCheck = transform;
+        if(wallCheck == null)
+            wallCheck = transform;
     }
 
     protected virtual void WalkAround()
@@ -93,6 +100,8 @@ public class Enemy : MonoBehaviour
     {
         groundDetected = Physics2D.Raycast(groundCheck .position, Vector2.down, groundCheckDistance, whatIsGround);
         wallDetected = Physics2D.Raycast(wallCheck .position, Vector2.right * _facingDirection, wallCheckDistance, whatIsGround);
+        playerDetection = Physics2D.Raycast(wallCheck.position, Vector2.right * _facingDirection, 100, ~whatToIgnore);
+
     }
 
     protected virtual void OnDrawGizmos()
@@ -101,6 +110,10 @@ public class Enemy : MonoBehaviour
             Gizmos.DrawLine(groundCheck.position, new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
 
         if(wallCheck != null)
+        {
             Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + wallCheckDistance * _facingDirection, wallCheck.position.y));
+            Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + playerDetection.distance * _facingDirection, wallCheck.position.y));
+        }
+
     }
 }

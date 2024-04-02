@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire_Trap : Traps
+public class Fire_Trap : Danger
 {
     public bool isWorking;
     //public bool hasSwitcher;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Saw_Trap_Extended : Traps
+public class Saw_Trap_Extended : Danger
 {
     [SerializeField] private Transform[] _movePoints;
     [SerializeField] private float _moveSpeed;
