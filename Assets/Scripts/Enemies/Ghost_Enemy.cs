@@ -72,7 +72,7 @@ public class Ghost_Enemy : Enemy
 
     public void Appear() 
     {
-        sr.enabled =  true;
+        sr.enabled =   true;
         //sr.color = Color.white;
     }
 
