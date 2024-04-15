@@ -6,13 +6,12 @@ public class Bat_Enemy : Enemy
 
     [Header("Bat Spec")]
     [SerializeField] private Transform[] idlePoint;
-    private Vector2 destination;
-    private bool canBeAggressive = true;
-    private bool playerDetected;
-    private Transform player;
-
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask whatIsPlayer;
+    private Transform player;
+    private bool playerDetected;
+    private Vector2 destination;
+    private bool canBeAggressive = true;
 
     float defaultSpeed;
 
