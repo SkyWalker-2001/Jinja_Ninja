@@ -32,6 +32,12 @@ public class Rhino_Enemy : Enemy
 
         else
         {
+            if (!groundDetected)
+            {
+                aggresive = false;
+                Flip();
+            }
+
             rb.velocity = new Vector2(aggresive_Speed * _facingDirection, rb.velocity.y);
 
             if (wallDetected && invincible)

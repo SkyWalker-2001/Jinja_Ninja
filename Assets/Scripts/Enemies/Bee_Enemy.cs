@@ -11,10 +11,13 @@ public class EneBee_Enemymy_Bee : Enemy
     [SerializeField] private LayerMask whatIsPlayer;
     [SerializeField] private Transform playerCheckPoint;
     [SerializeField] private float yOffset;
+    [SerializeField] private float agroSpeed;
+
     private Transform player;
+    private int idlePointIndex;
     private bool playerDetected;
-    private bool attackOver;
     private float defauyltSpeed;
+
 
     [Header("Bullet Spec")]
     [SerializeField] private GameObject buller_Prefab;
@@ -26,50 +29,66 @@ public class EneBee_Enemymy_Bee : Enemy
         base.Start();
 
         defauyltSpeed = speed;
+        player = GameObject.Find("Player").transform;
+
     }
 
     private void Update()
     {
+        bool idle = idleTimeCounter > 0;
+        anim.SetBool("idle", idle);
         idleTimeCounter -= Time.deltaTime;
 
-        if (idleTimeCounter > 0)
+        if (idle)
         {
             return;
         }
 
         playerDetected = Physics2D.OverlapCircle(playerCheckPoint.position, checkRadius, whatIsPlayer);
 
-        if (playerDetected)
+        if (playerDetected && !aggresive)
         {
             aggresive = true;
+            speed = agroSpeed;
         }
 
         if (!aggresive)
         {
-            transform.position = Vector2.MoveTowards(transform.position, idlePoint[0].position, speed * Time.deltaTime);
-        }
-        else
-        {
-            if (!attackOver)
+            transform.position = Vector2.MoveTowards(transform.position, idlePoint[idlePointIndex].position, speed * Time.deltaTime);
+
+            if (Vector2.Distance(transform.position, idlePoint[idlePointIndex].position) < .1f)
             {
-                Vector2 newPos = new Vector2(player.transform.position.x, player.transform.position.y + yOffset);
+                idlePointIndex++;
 
-                transform.position = Vector2.MoveTowards(transform.position, newPos, speed * Time.deltaTime);
-
-                float xDifference = transform.position.x - player.position.x;
-
-                if (Mathf.Abs(xDifference) < 1.5f)
+                if (idlePointIndex >= idlePoint.Length)
                 {
-                    anim.SetTrigger("attack");
+                    idlePointIndex = 0;
                 }
             }
         }
+        else
+        {
+
+            Vector2 newPos = new Vector2(player.transform.position.x, player.transform.position.y + yOffset);
+
+            transform.position = Vector2.MoveTowards(transform.position, newPos, speed * Time.deltaTime);
+
+            float xDifference = transform.position.x - player.position.x;
+
+            if (Mathf.Abs(xDifference) < 1.5f)
+            {
+                anim.SetTrigger("attack");
+            }
+
+        }
     }
 
-    private void AttackEvent()
+    public void AttackEvent()
     {
+        speed = defauyltSpeed;
         GameObject newBullet = Instantiate(buller_Prefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
         newBullet.GetComponent<Bullet>().SetupSpeed(0, -bulletSpeed);
+        Destroy(newBullet,3f);
 
         idleTimeCounter = idleTime;
         aggresive = false;
@@ -78,6 +97,8 @@ public class EneBee_Enemymy_Bee : Enemy
     protected override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
-        Gizmos.DrawWireSphere(playerCheckPoint.position,checkRadius);
+        Gizmos.DrawWireSphere(playerCheckPoint.position, checkRadius);
     }
+
+ 
 }
