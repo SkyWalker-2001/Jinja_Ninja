@@ -219,6 +219,9 @@ public class Player_Controller : MonoBehaviour
         {
             return;
         }
+
+        GetComponent<CameraShakeFX>().ScreenShake(-_facindDirection);
+
         _isKnocked = true;
         canBeKnocked = false;
 
