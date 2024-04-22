@@ -3,8 +3,9 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
-    [SerializeField] private Transform respawnPoint;
+
     [SerializeField] private GameObject playerPrefab;
+    public Transform respawnPoint;
     public GameObject currentPlayer;
 
     private void Awake()
@@ -13,7 +14,7 @@ public class PlayerManager : MonoBehaviour
         PlayerRespawn();
     }
 
-    private void PlayerRespawn()
+    public void PlayerRespawn()
     {
         if (currentPlayer == null)
         {
