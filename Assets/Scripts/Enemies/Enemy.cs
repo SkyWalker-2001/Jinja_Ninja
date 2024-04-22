@@ -21,6 +21,8 @@ public class Enemy : Danger
     protected bool wallDetected;
     protected bool groundDetected;
 
+    protected Transform player;
+
     [HideInInspector] public bool invincible;
 
     [Header("Move Info")]
@@ -38,6 +40,8 @@ public class Enemy : Danger
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+        player = PlayerManager.instance.currentPlayer.transform;
+        
         if (groundCheck == null)
             groundCheck = transform;
         if(wallCheck == null)

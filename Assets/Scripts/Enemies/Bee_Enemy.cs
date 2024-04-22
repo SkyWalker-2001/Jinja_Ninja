@@ -13,7 +13,6 @@ public class EneBee_Enemymy_Bee : Enemy
     [SerializeField] private float yOffset;
     [SerializeField] private float agroSpeed;
 
-    private Transform player;
     private int idlePointIndex;
     private bool playerDetected;
     private float defauyltSpeed;
@@ -29,8 +28,6 @@ public class EneBee_Enemymy_Bee : Enemy
         base.Start();
 
         defauyltSpeed = speed;
-        player = GameObject.Find("Player").transform;
-
     }
 
     private void Update()
@@ -40,6 +37,11 @@ public class EneBee_Enemymy_Bee : Enemy
         idleTimeCounter -= Time.deltaTime;
 
         if (idle)
+        {
+            return;
+        }
+
+        if(player == null)
         {
             return;
         }

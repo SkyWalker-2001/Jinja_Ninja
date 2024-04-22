@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5912535744457387487}
   - component: {fileID: 565473216062260622}
   - component: {fileID: 7174022267292624581}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 2834290619203878955}
   - component: {fileID: 3414290632683700158}
   - component: {fileID: 1517535125163154059}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Virtual Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 115181865351188202}
   - component: {fileID: 3964393153621048760}
   - component: {fileID: 8028219854790918197}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoomCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}

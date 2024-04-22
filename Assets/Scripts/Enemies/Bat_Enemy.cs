@@ -42,7 +42,17 @@ public class Bat_Enemy : Enemy
         {
             aggresive = true;
             canBeAggressive = false;
-            destination = player.transform.position;
+            if (player != null)
+            {
+
+                destination = player.transform.position;
+            }
+
+            else
+            {
+                aggresive = false;
+                canBeAggressive = true;
+            }
         }
 
         if (aggresive)
@@ -92,6 +102,11 @@ public class Bat_Enemy : Enemy
 
     private void FlipController()
     {
+        if (player == null)
+        {
+            return;
+        }
+        
         if (_facingDirection == -1 && transform.position.x < destination.x)
             Flip();
         else if (_facingDirection == 1 && transform.position.x > destination.x)
