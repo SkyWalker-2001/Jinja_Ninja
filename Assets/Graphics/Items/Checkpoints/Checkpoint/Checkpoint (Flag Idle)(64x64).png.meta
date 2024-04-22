@@ -33,7 +33,7 @@ TextureImporter:
       213: -8728669653598591988
     second: Checkpoint (Flag Idle)(64x64)_9
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -162,17 +162,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle (32x32)_0
+      name: Checkpoint (Flag Idle)(64x64)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,41 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f8df02b414a10040820a215c44e6727
-      internalID: -6367560908665664636
+      spriteID: d056416fe5fa442c899db5bc243fade8
+      internalID: -701520075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dad0842b0e1266744807b55c0a817173
-      internalID: -6056987297122131021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_2
+      name: Checkpoint (Flag Idle)(64x64)_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,41 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e3f84f259babaa4ea505538a45b66ed
-      internalID: 8416797952724722639
+      spriteID: 7bfc447a3b347471c8dc984d5d6d6b4e
+      internalID: 1357110609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51fcd6b3a4543b94ea4c4811239662dc
-      internalID: 4883129791460916795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_4
+      name: Checkpoint (Flag Idle)(64x64)_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,41 +235,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75075e22c2d8bdf4ea54d3710413f49d
-      internalID: 4278371960119211202
+      spriteID: c45352f49faa74addabdedfa40d3ad04
+      internalID: -1622880424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb91744552523df448d1a62b2bd5e6d2
-      internalID: 8644832591467991550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_6
+      name: Checkpoint (Flag Idle)(64x64)_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,41 +256,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40985699053f8804ea4843a2904bc9f7
-      internalID: -7152759390613953277
+      spriteID: cf0347e9519624189bc6f6398df88019
+      internalID: -1911967788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1d17ae02a318e244a8eaeec26b0cc96
-      internalID: 6456874251884481089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_8
+      name: Checkpoint (Flag Idle)(64x64)_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,41 +277,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ac4e0c793502554a944c33998522911
-      internalID: -2526832996998184344
+      spriteID: b303b700c791d40d89e263f77c16b322
+      internalID: 179470452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a70e682c3a4c4aa4ca1a9a808dc6b69b
-      internalID: 4392827059107796345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_10
+      name: Checkpoint (Flag Idle)(64x64)_5
       rect:
         serializedVersion: 2
         x: 320
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,8 +298,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e54d2aec81408fc4e98c548b032c655a
-      internalID: -1363835404106015672
+      spriteID: 5429a5eba7dd741e08e5a088cc8d452c
+      internalID: 1011130751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkpoint (Flag Idle)(64x64)_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d53a1e87c5b89455aa1f20acbcde6e98
+      internalID: -80176188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkpoint (Flag Idle)(64x64)_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d82000af021aa4c64ad5892330e193fd
+      internalID: -1432894946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkpoint (Flag Idle)(64x64)_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3147de0419dd14c5894f103eb0948ba6
+      internalID: -1445318987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkpoint (Flag Idle)(64x64)_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adba79902c84444f0954ab325c636f80
+      internalID: 1709259973
       vertices: []
       indices: 
       edges: []
@@ -407,17 +399,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle (32x32)_0: -6367560908665664636
-      Idle (32x32)_1: -6056987297122131021
-      Idle (32x32)_10: -1363835404106015672
-      Idle (32x32)_2: 8416797952724722639
-      Idle (32x32)_3: 4883129791460916795
-      Idle (32x32)_4: 4278371960119211202
-      Idle (32x32)_5: 8644832591467991550
-      Idle (32x32)_6: -7152759390613953277
-      Idle (32x32)_7: 6456874251884481089
-      Idle (32x32)_8: -2526832996998184344
-      Idle (32x32)_9: 4392827059107796345
+      Checkpoint (Flag Idle)(64x64)_0: -701520075
+      Checkpoint (Flag Idle)(64x64)_1: 1357110609
+      Checkpoint (Flag Idle)(64x64)_2: -1622880424
+      Checkpoint (Flag Idle)(64x64)_3: -1911967788
+      Checkpoint (Flag Idle)(64x64)_4: 179470452
+      Checkpoint (Flag Idle)(64x64)_5: 1011130751
+      Checkpoint (Flag Idle)(64x64)_6: -80176188
+      Checkpoint (Flag Idle)(64x64)_7: -1432894946
+      Checkpoint (Flag Idle)(64x64)_8: -1445318987
+      Checkpoint (Flag Idle)(64x64)_9: 1709259973
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
