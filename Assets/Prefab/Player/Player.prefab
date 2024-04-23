@@ -169,6 +169,9 @@ MonoBehaviour:
   _wallCheckDistance: 0.786
   what_is_ground:
     serializedVersion: 2
+    m_Bits: 2112
+  what_is_wall:
+    serializedVersion: 2
     m_Bits: 64
   enemyCheck: {fileID: 4841067076665073532}
   enemyCheckRadius: 0.25

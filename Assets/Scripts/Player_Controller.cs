@@ -18,7 +18,7 @@ public class Player_Controller : MonoBehaviour
     public float doubleJumpForce;
 
     private float defaultJumpForce;
-     
+
     private bool _facingRight = true;
     private int _facindDirection = 1;
 
@@ -26,28 +26,29 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] float _groundCheckDistance;
     [SerializeField] float _wallCheckDistance;
     [SerializeField] public LayerMask what_is_ground;
+    [SerializeField] public LayerMask what_is_wall;
     [SerializeField] private Transform enemyCheck;
-    [SerializeField] private float enemyCheckRadius; 
+    [SerializeField] private float enemyCheckRadius;
     private bool _isGrounded;
     private bool _isWallDetected;
     private bool _canWallSlide;
     private bool _isWallSliding;
 
     [SerializeField] private float _bufferJumpTime;
-                     private float _bufferJumpCounter;
+    private float _bufferJumpCounter;
 
     [SerializeField] private float _cayoteJumpTimer;
-                     private float _cayoteJumpCounter;
-                     private bool _canHaveCayoteJump;
+    private float _cayoteJumpCounter;
+    private bool _canHaveCayoteJump;
 
     [Header("KnockBacked")]
     [SerializeField] private Vector2 _knockBackDirection;
     [SerializeField] private float _knockbackTime;
     [SerializeField] private float _knockbackProtectionTime;
-                     private bool _isKnocked; 
-                     private bool canBeKnocked = true;
+    private bool _isKnocked;
+    private bool canBeKnocked = true;
 
-    
+
 
     private void Start()
     {
@@ -67,7 +68,7 @@ public class Player_Controller : MonoBehaviour
         }
 
         // no further execution ///  Knockback function Player
-            
+
         Collisiion_Check();
 
         Input_Checks();
@@ -128,7 +129,7 @@ public class Player_Controller : MonoBehaviour
                     return;
                 }
 
-                if(_rb.velocity.y < 0)
+                if (_rb.velocity.y < 0)
                 {
                     newEnemy.Damage();
                     Jump();
@@ -166,7 +167,7 @@ public class Player_Controller : MonoBehaviour
 
     private void Flip_Controller()
     {
-        if(_facingRight && _rb.velocity.x < 0)
+        if (_facingRight && _rb.velocity.x < 0)
         {
             Flip();
         }
@@ -196,13 +197,13 @@ public class Player_Controller : MonoBehaviour
             canDoubleJump = true;
         }
 
-        else if (_isGrounded || _cayoteJumpCounter > 0 )
+        else if (_isGrounded || _cayoteJumpCounter > 0)
         {
             Jump();
         }
 
         else if (canDoubleJump)
-        {   
+        {
             canMove = true;
             canDoubleJump = false;
             _jumpForce = doubleJumpForce;
@@ -255,10 +256,10 @@ public class Player_Controller : MonoBehaviour
     {
         canBeKnocked = true;
     }
-        
+
     private void Move()
     {
-        if(canMove)
+        if (canMove)
             _rb.velocity = new Vector2(_movingInput * _moveSpeed, _rb.velocity.y);
     }
 
@@ -274,12 +275,19 @@ public class Player_Controller : MonoBehaviour
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
     }
 
+    // 
+
+    public void Push_UP(float pushForce)
+    {
+        _rb.velocity = new Vector2(_rb.velocity.x, pushForce);
+    }
+
     private void Collisiion_Check()
     {
         _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, _groundCheckDistance, what_is_ground);
-        _isWallDetected = Physics2D.Raycast(transform.position, Vector2.right * _facindDirection, _wallCheckDistance, what_is_ground);
+        _isWallDetected = Physics2D.Raycast(transform.position, Vector2.right * _facindDirection, _wallCheckDistance, what_is_wall);
 
-        if(_isWallDetected && _rb.velocity.y < 0)
+        if (_isWallDetected && _rb.velocity.y < 0)
         {
             _canWallSlide = true;
         }
@@ -289,7 +297,7 @@ public class Player_Controller : MonoBehaviour
             _canWallSlide = false;
             _isWallSliding = false;
         }
-    }   
+    }
 
     private void OnDrawGizmos()
     {
