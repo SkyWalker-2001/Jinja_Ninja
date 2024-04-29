@@ -19,6 +19,8 @@ public class Player_Controller : MonoBehaviour
 
     private float defaultJumpForce;
 
+    public int fruits;
+
     private bool _facingRight = true;
     private int _facindDirection = 1;
 
@@ -219,6 +221,12 @@ public class Player_Controller : MonoBehaviour
         if (!canBeKnocked)
         {
             return;
+        }
+
+        fruits--;
+        if (fruits < 0)
+        {
+            Destroy(gameObject);
         }
 
         GetComponent<CameraShakeFX>().ScreenShake(-_facindDirection);
