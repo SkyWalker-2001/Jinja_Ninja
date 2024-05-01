@@ -16,7 +16,7 @@ public enum Fruit_Types
 
 public class Fruit_Item : MonoBehaviour
 {
-    private Animator anim;
+    [SerializeField]private Animator anim;
     [SerializeField]private SpriteRenderer sr;
     public Fruit_Types myFruit_Type;
     [SerializeField] private Sprite[] fruit_Image;
@@ -32,20 +32,18 @@ public class Fruit_Item : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void FruitSetup(int fruitIndex)
     {
-        anim = GetComponent<Animator>();
-
         for (int i = 0; i < anim.layerCount; i++)
         {
             anim.SetLayerWeight(i, 0);
         }
 
-        anim.SetLayerWeight(((int)fruitTypes), 1);
+        anim.SetLayerWeight(fruitIndex, 1);
     }
 
-    private void OnValidate()
-    {
-        sr.sprite = fruit_Image[((int)myFruit_Type)];
-    }
+    // private void OnValidate()
+    // {
+    //     sr.sprite = fruit_Image[((int)myFruit_Type)];
+    // }
 }
