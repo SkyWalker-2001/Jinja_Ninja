@@ -34,13 +34,18 @@ public class SkinSelection_UI : MonoBehaviour
         SetupSkinInfo();
     }
 
+    private void Start()
+    {
+        skinPurchased[0] = true;
+    }
+
     private void SetupSkinInfo()
     {
         equipButton.SetActive(skinPurchased[skin_ID]);
         buyButton.SetActive(!skinPurchased[skin_ID]);
 
-        if(!skinPurchased[skin_ID])
-            buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Price: "+ priceForSkin[skin_ID];
+        if (!skinPurchased[skin_ID])
+            buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Price: " + priceForSkin[skin_ID];
 
         anim.SetInteger("skin_id", skin_ID);
     }
@@ -52,8 +57,9 @@ public class SkinSelection_UI : MonoBehaviour
         SetupSkinInfo();
     }
 
-    public void Equip()
+    public void Select()
     {
+        PlayerManager.instance.choosenSkinId = skin_ID;
         Debug.Log("Skin was equiped");
     }
 }

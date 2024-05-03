@@ -24,7 +24,7 @@ public class Rhino_Enemy : Enemy
         CheckCollision();
         Animator_Controller();
 
-        if(!player)
+        if(!playerDetection)
         {
             WalkAround();  
             return;
