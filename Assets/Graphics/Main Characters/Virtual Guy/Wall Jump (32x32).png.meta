@@ -1,27 +1,24 @@
 fileFormatVersion: 2
-guid: 62a315a8619ac644f899c29e008115c0
+guid: 5a448cc07b6e09343924bf933b0cb70e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9101230857065804138
-    second: Double Jump (32x32)_0
+      213: 3974224528455760076
+    second: Wall Jump (32x32)_0
   - first:
-      213: -6204479477933590408
-    second: Double Jump (32x32)_1
+      213: 403085039841989221
+    second: Wall Jump (32x32)_1
   - first:
-      213: 7040038629683462113
-    second: Double Jump (32x32)_2
+      213: -6018873884784744797
+    second: Wall Jump (32x32)_2
   - first:
-      213: 781615245368611544
-    second: Double Jump (32x32)_3
+      213: -674972067355074983
+    second: Wall Jump (32x32)_3
   - first:
-      213: -3939753913355333839
-    second: Double Jump (32x32)_4
-  - first:
-      213: 6301718139250434432
-    second: Double Jump (32x32)_5
+      213: 4366178942990776957
+    second: Wall Jump (32x32)_4
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -139,6 +136,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1

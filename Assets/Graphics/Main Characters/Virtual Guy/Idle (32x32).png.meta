@@ -1,45 +1,42 @@
 fileFormatVersion: 2
-guid: 552146dbb8bac6f449493bca4b69540f
+guid: 40de9a8703e2e5a47882b0b86451c741
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7166236263522030466
-    second: Run (32x32)_0
+      213: -6367560908665664636
+    second: Idle (32x32)_0
   - first:
-      213: 2470319409956435798
-    second: Run (32x32)_1
+      213: -6056987297122131021
+    second: Idle (32x32)_1
   - first:
-      213: -4540918584354326388
-    second: Run (32x32)_2
+      213: 8416797952724722639
+    second: Idle (32x32)_2
   - first:
-      213: -4455822056875728695
-    second: Run (32x32)_3
+      213: 4883129791460916795
+    second: Idle (32x32)_3
   - first:
-      213: -5364790588639958657
-    second: Run (32x32)_4
+      213: 4278371960119211202
+    second: Idle (32x32)_4
   - first:
-      213: -1512656188830553638
-    second: Run (32x32)_5
+      213: 8644832591467991550
+    second: Idle (32x32)_5
   - first:
-      213: -2754230144694611447
-    second: Run (32x32)_6
+      213: -7152759390613953277
+    second: Idle (32x32)_6
   - first:
-      213: -2419971920513260168
-    second: Run (32x32)_7
+      213: 6456874251884481089
+    second: Idle (32x32)_7
   - first:
-      213: 1843850012483549754
-    second: Run (32x32)_8
+      213: -2526832996998184344
+    second: Idle (32x32)_8
   - first:
-      213: 241620830004830169
-    second: Run (32x32)_9
+      213: 4392827059107796345
+    second: Idle (32x32)_9
   - first:
-      213: -362971539341918764
-    second: Run (32x32)_10
-  - first:
-      213: 2178398316516280758
-    second: Run (32x32)_11
+      213: -1363835404106015672
+    second: Idle (32x32)_10
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -157,6 +154,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
