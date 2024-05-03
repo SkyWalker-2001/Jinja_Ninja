@@ -35,7 +35,7 @@ public class FruitManager : MonoBehaviour
                 }
             }
 
-            fruitPosition[i].GetComponent<SpriteRenderer>().sprite = null;
+            fruitPosition[i].GetComponent<SpriteRenderer>().sprite = null; 
         }
     }
 }

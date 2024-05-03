@@ -18,7 +18,6 @@ public class Bat_Enemy : Enemy
     protected override void Start()
     {
         base.Start();
-        player = GameObject.Find("Player").transform;
         defaultSpeed = speed;
         destination = idlePoint[0].position;
         transform.position = idlePoint[0].position;

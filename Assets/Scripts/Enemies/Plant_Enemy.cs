@@ -24,6 +24,10 @@ public class Plant_Enemy : Enemy
     void Update()
     {
         CheckCollision();
+
+        if(!playerDetection){
+            return;
+        }
          
         idleTimeCounter -= Time.deltaTime;
 

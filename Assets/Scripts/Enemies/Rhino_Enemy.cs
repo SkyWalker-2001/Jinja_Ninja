@@ -21,6 +21,16 @@ public class Rhino_Enemy : Enemy
     private void Update()
     {
 
+        CheckCollision();
+        Animator_Controller();
+
+        if(!player)
+        {
+            WalkAround();  
+            return;
+        }
+
+
         if (playerDetection.collider.GetComponent<Player_Controller>() != null)
             aggresive = true;
 
@@ -56,8 +66,6 @@ public class Rhino_Enemy : Enemy
 
         shockTimeCounter -= Time.deltaTime;
 
-        CheckCollision();
-        Animator_Controller();
     }
 
     private void Animator_Controller()
