@@ -8,15 +8,26 @@ public class PlayerManager : MonoBehaviour
     public Transform respawnPoint;
     public GameObject currentPlayer;
     public int choosenSkinId;
+    public int fruits;
 
     private void Awake()
     {
-        instance = this;
-        PlayerRespawn();
+        DontDestroyOnLoad(this.gameObject);
+
+        if (instance == null)
+        {
+
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.R))
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
         {
             PlayerRespawn();
         }

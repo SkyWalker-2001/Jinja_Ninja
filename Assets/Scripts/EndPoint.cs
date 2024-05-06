@@ -10,6 +10,9 @@ public class EndPoint : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("activate");
             Debug.Log("Winner");
+
+            GameManager.instance.SaveBestTimer();
+            GameManager.instance.saveCollectedFruits();
         }
     }
 }

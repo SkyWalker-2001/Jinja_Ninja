@@ -16,6 +16,10 @@ public class StartPoint : MonoBehaviour
     {
         if (other.GetComponent<Player_Controller>() != null)
         {
+            if(!GameManager.instance.startTimer)
+            {
+                GameManager.instance.startTimer = true;
+            }
             if (other.transform.position.x > transform.position.x)
             {
                 GetComponent<Animator>().SetTrigger("touch");

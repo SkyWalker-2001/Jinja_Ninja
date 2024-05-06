@@ -8,7 +8,7 @@ public class Level_Manager : MonoBehaviour
 {
     [SerializeField] private GameObject levelButton;
     [SerializeField] private Transform levelButton_parent;
-    
+
     [SerializeField] private bool[] levelOpen;
 
     private void Start()
@@ -16,7 +16,7 @@ public class Level_Manager : MonoBehaviour
 
         for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
         {
-            if(!levelOpen[i])
+            if (!levelOpen[i])
             {
                 return;
             }
@@ -29,6 +29,9 @@ public class Level_Manager : MonoBehaviour
         }
     }
 
-    public void LoadSceneMode(String sceneToLoad) => SceneManager.LoadScene(sceneToLoad);
-    
+    public void LoadSceneMode(String sceneToLoad)
+    {
+        GameManager.instance.SaveGame_Difficulty();
+        SceneManager.LoadScene(sceneToLoad);
+    }
 }

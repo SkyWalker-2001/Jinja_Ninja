@@ -18,9 +18,6 @@ public class Player_Controller : MonoBehaviour
     public float doubleJumpForce;
 
     private float defaultJumpForce;
-
-    public int fruits;
-
     private bool _facingRight = true;
     private int _facindDirection = 1;
 
@@ -223,11 +220,15 @@ public class Player_Controller : MonoBehaviour
             return;
         }
 
-        fruits--;
-        if (fruits < 0)
+        if (GameManager.instance.difficulty > 1)
         {
-            Destroy(gameObject);
+            PlayerManager.instance.fruits--;
+            if (PlayerManager.instance.fruits < 0)
+            {
+                Destroy(gameObject);
+            }
         }
+
 
         GetComponent<CameraShakeFX>().ScreenShake(-_facindDirection);
 

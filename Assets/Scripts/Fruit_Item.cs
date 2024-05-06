@@ -25,8 +25,8 @@ public class Fruit_Item : MonoBehaviour
     {
         if (other.GetComponent<Player_Controller>() != null)
         {
-            other.GetComponent<Player_Controller>().fruits++;
-            Destroy(this.gameObject);
+            PlayerManager.instance.fruits++;
+            Destroy(this.gameObject); 
 
             // gamemanager.fruits += player.fruits;
         }

@@ -26,7 +26,7 @@ public class FruitManager : MonoBehaviour
             }
             else
             {
-                newFruit.GetComponent<Fruit_Item>().FruitSetup(fruitIndex); 
+                newFruit.GetComponent<Fruit_Item>().FruitSetup(fruitIndex);
                 fruitIndex++;
 
                 if (fruitIndex > Enum.GetNames(typeof(Fruit_Types)).Length)
@@ -35,7 +35,13 @@ public class FruitManager : MonoBehaviour
                 }
             }
 
-            fruitPosition[i].GetComponent<SpriteRenderer>().sprite = null; 
+            fruitPosition[i].GetComponent<SpriteRenderer>().sprite = null;
+
+            int levelNum = GameManager.instance.levelNumber;
+            int totalAmountOfFruits = PlayerPrefs.GetInt("Level" + levelNum + "TotalFruits" );
+
+            if(totalAmountOfFruits != fruitPosition.Length - 1)
+                 PlayerPrefs.SetInt("Level" + levelNum + "TotalFruits", fruitPosition.Length - 1);
         }
     }
 }

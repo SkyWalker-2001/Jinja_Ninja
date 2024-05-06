@@ -2535,6 +2535,7 @@ MonoBehaviour:
   skin_ID: 0
   skinPurchased: 00000000
   priceForSkin: 00000000320000006400000096000000
+  bankText: {fileID: 1614350815}
 --- !u!1 &460684151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3280,7 +3281,7 @@ GameObject:
   - component: {fileID: 852451275}
   - component: {fileID: 852451274}
   m_Layer: 5
-  m_Name: Bank
+  m_Name: Bank_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8342,6 +8343,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1632488890}
+        m_TargetAssemblyTypeName: MainMenue_UI, Assembly-CSharp
+        m_MethodName: SetGameDifficulty
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1051410495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8780,6 +8793,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150294089}
   m_CullTransparentMesh: 1
+--- !u!1 &1177750148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1177750150}
+  - component: {fileID: 1177750149}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1177750149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177750148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3be18deb2e6a4f52b4c294c51368890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 0
+  timer: 0
+  startTimer: 0
+  levelNumber: 1
+--- !u!4 &1177750150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177750148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1177847636
 GameObject:
   m_ObjectHideFlags: 0
@@ -9620,7 +9681,7 @@ GameObject:
   - component: {fileID: 1614350816}
   - component: {fileID: 1614350815}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BankAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9869,6 +9930,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 444967627}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1632488890}
+        m_TargetAssemblyTypeName: MainMenue_UI, Assembly-CSharp
+        m_MethodName: SetGameDifficulty
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11040,6 +11113,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1632488890}
+        m_TargetAssemblyTypeName: MainMenue_UI, Assembly-CSharp
+        m_MethodName: SetGameDifficulty
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1990330177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11427,7 +11512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173822910008067125, guid: 5562512606cd44847aa9bf363407e1b4, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173822910008067125, guid: 5562512606cd44847aa9bf363407e1b4, type: 3}
       propertyPath: respawnPoint
@@ -11453,3 +11538,4 @@ SceneRoots:
   - {fileID: 941799229}
   - {fileID: 1411206774}
   - {fileID: 1353738407}
+  - {fileID: 1177750150}
