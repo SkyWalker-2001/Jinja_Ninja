@@ -78,4 +78,8 @@ public class GameManager : MonoBehaviour
 
         PlayerManager.instance.fruits = 0; 
     }
+
+    public void SaveLevelInfo(){
+        
+    }
 }

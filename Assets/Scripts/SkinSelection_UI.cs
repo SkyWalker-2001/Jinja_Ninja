@@ -6,7 +6,7 @@ using UnityEngine;
 public class SkinSelection_UI : MonoBehaviour
 {
     [SerializeField] private GameObject buyButton;
-    [SerializeField] private GameObject equipButton;
+    [SerializeField] private GameObject selectButton;
 
     [SerializeField] private Animator anim;
     [SerializeField] private int skin_ID;
@@ -36,16 +36,23 @@ public class SkinSelection_UI : MonoBehaviour
         SetupSkinInfo();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        skinPurchased[0] = true;
+        SetupSkinInfo();
+    }
 
-        bankText.text = PlayerPrefs.GetInt("TotalFruitsCollected").ToString();
+    private void OnDisable()
+    {
+        selectButton.SetActive(false);
     }
 
     private void SetupSkinInfo()
     {
-        equipButton.SetActive(skinPurchased[skin_ID]);
+        skinPurchased[0] = true;
+
+        bankText.text = PlayerPrefs.GetInt("TotalFruitsCollected").ToString();
+
+        selectButton.SetActive(skinPurchased[skin_ID]);
         buyButton.SetActive(!skinPurchased[skin_ID]);
 
         if (!skinPurchased[skin_ID])
@@ -65,5 +72,10 @@ public class SkinSelection_UI : MonoBehaviour
     {
         PlayerManager.instance.choosenSkinId = skin_ID;
         Debug.Log("Skin was equiped");
+    }
+
+    public void SwitchSelectButton(GameObject newButton)
+    {
+        selectButton = newButton;
     }
 }
