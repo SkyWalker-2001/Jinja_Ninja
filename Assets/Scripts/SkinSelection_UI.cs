@@ -46,6 +46,8 @@ public class SkinSelection_UI : MonoBehaviour
         selectButton.SetActive(false);
     }
 
+    
+
     private void SetupSkinInfo()
     {
         skinPurchased[0] = true;

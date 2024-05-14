@@ -8952,7 +8952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1206025435
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9156,7 +9156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelButton: {fileID: 1835435562524978776, guid: f98b98fabafe6410d8f84e4db2e13e2e, type: 3}
   levelButton_parent: {fileID: 72687369}
-  levelOpen: 00010101000000000000
+  levelOpen: 00000000000000000000000000000000000000000000000000
 --- !u!1001 &1411206774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9642,13 +9642,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1632488890}
-        m_TargetAssemblyTypeName: MainMenue_UI, Assembly-CSharp
-        m_MethodName: SwitchMenueTo
-        m_Mode: 2
+      - m_Target: {fileID: 1382726883}
+        m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
+        m_MethodName: LoadToContinue
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1030658588}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11498,7 +11498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2056091037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11563,6 +11563,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1382726883}
+        m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
+        m_MethodName: LoadNewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 444967629}
         m_TargetAssemblyTypeName: SkinSelection_UI, Assembly-CSharp
         m_MethodName: Select

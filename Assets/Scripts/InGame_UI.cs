@@ -1,13 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Timer_UI : MonoBehaviour
+public class InGame_UI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI currentFruitAmount;
 
+    private void Start() 
+    {
+        GameManager.instance.levelNumber = SceneManager.GetActiveScene().buildIndex;
+    }
 
     private void Update()
     {

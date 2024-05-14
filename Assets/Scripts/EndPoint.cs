@@ -13,6 +13,7 @@ public class EndPoint : MonoBehaviour
 
             GameManager.instance.SaveBestTimer();
             GameManager.instance.saveCollectedFruits();
+            GameManager.instance.SaveLevelInfo();
         }
     }
 }

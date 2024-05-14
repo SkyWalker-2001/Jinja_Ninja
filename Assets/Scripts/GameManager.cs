@@ -79,7 +79,9 @@ public class GameManager : MonoBehaviour
         PlayerManager.instance.fruits = 0; 
     }
 
-    public void SaveLevelInfo(){
-        
+    public void SaveLevelInfo()
+    {
+        int nextLevel = levelNumber + 1;
+        PlayerPrefs.SetInt("Level" + nextLevel + "Unlocked", 1);
     }
 }
