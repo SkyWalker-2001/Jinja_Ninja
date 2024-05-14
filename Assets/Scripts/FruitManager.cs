@@ -14,6 +14,7 @@ public class FruitManager : MonoBehaviour
     private void Start()
     {
         fruitPosition = GetComponentsInChildren<Transform>();
+        int levelNum = GameManager.instance.levelNumber;
 
         for (int i = 1; i < fruitPosition.Length; i++)
         {
@@ -36,12 +37,11 @@ public class FruitManager : MonoBehaviour
             }
 
             fruitPosition[i].GetComponent<SpriteRenderer>().sprite = null;
-
-            int levelNum = GameManager.instance.levelNumber;
-            int totalAmountOfFruits = PlayerPrefs.GetInt("Level" + levelNum + "TotalFruits" );
-
-            if(totalAmountOfFruits != fruitPosition.Length - 1)
-                 PlayerPrefs.SetInt("Level" + levelNum + "TotalFruits", fruitPosition.Length - 1);
         }
+        
+        int totalAmountOfFruits = PlayerPrefs.GetInt("Level" + levelNum + "TotalFruits" );
+
+        if(totalAmountOfFruits != fruitPosition.Length - 1)
+            PlayerPrefs.SetInt("Level" + levelNum + "TotalFruits", fruitPosition.Length - 1);
     }
 }
