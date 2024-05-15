@@ -2661,13 +2661,13 @@ Material:
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
-    - _OutlineSoftness: 0.5
+    - _OutlineSoftness: 0.521
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
     - _OutlineWidth: 1
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 0.31007752
+    - _ScaleRatioA: 0.3076734
     - _ScaleRatioB: 0
     - _ScaleRatioC: 0
     - _ScaleX: 1
