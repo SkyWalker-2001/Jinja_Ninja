@@ -2530,13 +2530,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d3daa6b3ed64887963595a51702737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skin_ID: 0
+  priceForSkin: 00000000320000006400000096000000
+  skinPurchased: 00000000
+  bankText: {fileID: 1614350815}
   buyButton: {fileID: 179321059}
   selectButton: {fileID: 0}
   anim: {fileID: 2007781155}
-  skin_ID: 0
-  skinPurchased: 00000000
-  priceForSkin: 00000000320000006400000096000000
-  bankText: {fileID: 1614350815}
 --- !u!1 &460684151
 GameObject:
   m_ObjectHideFlags: 0
@@ -10262,6 +10262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0f6e5a289d9458d81db05c7556415a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continue_Button: {fileID: 1097004320}
 --- !u!1 &1641013164
 GameObject:
   m_ObjectHideFlags: 0

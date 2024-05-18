@@ -15,9 +15,9 @@ public class InGame_UI : MonoBehaviour
     [Header("Text Components")]
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI currentFruitAmount;
-    [SerializeField] private TextMeshProUGUI endTime_Text; 
-    [SerializeField] private TextMeshProUGUI endBestTime_Text; 
-    [SerializeField] private TextMeshProUGUI endFruit_Text; 
+    [SerializeField] private TextMeshProUGUI endTime_Text;
+    [SerializeField] private TextMeshProUGUI endBestTime_Text;
+    [SerializeField] private TextMeshProUGUI endFruit_Text;
 
     private void Start()
     {
@@ -80,7 +80,11 @@ public class InGame_UI : MonoBehaviour
         uiMenue.SetActive(true);
     }
 
-    public void Load_MainMenue() => SceneManager.LoadScene("Main_Menue");
+    public void Load_MainMenue()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Main_Menue");
+    }
     public void ReloadCurrentLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     public void Load_NextLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 }
