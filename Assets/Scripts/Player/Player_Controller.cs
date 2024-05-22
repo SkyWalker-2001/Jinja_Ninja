@@ -16,10 +16,12 @@ public class Player_Controller : MonoBehaviour
 
     public Vector2 wallJumpDirection;
     public float doubleJumpForce;
+    private bool canBeControlled;
 
     private float defaultJumpForce;
     private bool _facingRight = true;
     private int _facindDirection = 1;
+    private float defaultGravityScale;
 
     [Header("Collision Info")]
     [SerializeField] float _groundCheckDistance;
@@ -55,6 +57,10 @@ public class Player_Controller : MonoBehaviour
         _player_AnimatorController = GetComponent<Animator>();
 
         defaultJumpForce = _jumpForce;
+
+        defaultGravityScale = _rb.gravityScale;
+        Debug.Log(defaultGravityScale);
+        _rb.gravityScale = 0;
     }
 
     private void Update()
@@ -146,11 +152,14 @@ public class Player_Controller : MonoBehaviour
         _player_AnimatorController.SetBool("isGrounded", _isGrounded);
         _player_AnimatorController.SetBool("isWallSliding", _isWallSliding);
         _player_AnimatorController.SetBool("isWallDetected", _isWallDetected);
+        _player_AnimatorController.SetBool("canBeControlled", canBeControlled);
         _player_AnimatorController.SetFloat("yVelocity", _rb.velocity.y);
     }
 
     private void Input_Checks()
     {
+        if (!canBeControlled) { return; }
+
         _movingInput = Input.GetAxis("Horizontal");
 
         if (Input.GetAxis("Vertical") < 0)
@@ -162,6 +171,12 @@ public class Player_Controller : MonoBehaviour
         {
             Jump_Button();
         }
+    }
+
+    public void ReturnControl()
+    {
+        _rb.gravityScale = defaultGravityScale;
+        canBeControlled = true;
     }
 
     private void Flip_Controller()
@@ -230,7 +245,7 @@ public class Player_Controller : MonoBehaviour
         }
 
 
-        GetComponent<CameraShakeFX>().ScreenShake(-_facindDirection);
+        PlayerManager.instance.ScreenShake(-_facindDirection);
 
         _isKnocked = true;
         canBeKnocked = false;

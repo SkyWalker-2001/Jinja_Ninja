@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3283515178106936795}
   - component: {fileID: 7621462288460526292}
   - component: {fileID: 1338444062647928900}
+  - component: {fileID: 6577110900898107849}
   m_Layer: 0
   m_Name: Chain
   m_TagString: Untagged
@@ -138,6 +139,18 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!114 &6577110900898107849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471872330724177969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b319cbbd7e8d748a146c135b9a3774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4905256652489001997
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +324,7 @@ GameObject:
   - component: {fileID: 5881159067375348226}
   - component: {fileID: 7165267071714750338}
   - component: {fileID: 7168440612147557654}
+  - component: {fileID: 5055917410702364329}
   m_Layer: 0
   m_Name: Chain_1
   m_TagString: Untagged
@@ -437,6 +451,18 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!114 &5055917410702364329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6245134383372372913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b319cbbd7e8d748a146c135b9a3774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6536998857177911673
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +475,7 @@ GameObject:
   - component: {fileID: 3348127576290090596}
   - component: {fileID: 4393003939705303422}
   - component: {fileID: 4786199354880593443}
+  - component: {fileID: 1276168298826229864}
   m_Layer: 0
   m_Name: Chain_2
   m_TagString: Untagged
@@ -575,6 +602,18 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!114 &1276168298826229864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536998857177911673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b319cbbd7e8d748a146c135b9a3774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8119823140470370000
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +805,7 @@ GameObject:
   - component: {fileID: 7621572914723968053}
   - component: {fileID: 8816703484263515999}
   - component: {fileID: 7412392702347745009}
+  - component: {fileID: 8848417880793217304}
   m_Layer: 0
   m_Name: Chain_3
   m_TagString: Untagged
@@ -892,3 +932,15 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!114 &8848417880793217304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8575342917779090988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b319cbbd7e8d748a146c135b9a3774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
