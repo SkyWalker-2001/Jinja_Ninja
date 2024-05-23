@@ -48,9 +48,10 @@ MonoBehaviour:
   playerPrefab: {fileID: 5690112436994215575, guid: 38efe5eac95ee4a2283cce3596d5b7f5, type: 3}
   respawnPoint: {fileID: 0}
   currentPlayer: {fileID: 0}
+  playerdeath_FX: {fileID: 7555500868694408309, guid: 6345bc86496ad4d0bbf528b7bec0a673, type: 3}
   choosenSkinId: 0
   fruits: 0
-  impulse: {fileID: 0}
+  impulse: {fileID: 2401368652504075714}
   shakeDir: {x: 1, y: 1, z: 0}
   forceMultiplier: 1
 --- !u!114 &2401368652504075714
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3654060746521434153}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
   m_Name: 

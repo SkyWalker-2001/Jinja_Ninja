@@ -47,7 +47,7 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float _knockbackTime;
     [SerializeField] private float _knockbackProtectionTime;
     private bool _isKnocked;
-    private bool canBeKnocked = true;
+    [SerializeField] private bool canBeKnocked = true;
 
 
 
@@ -237,13 +237,8 @@ public class Player_Controller : MonoBehaviour
 
         if (GameManager.instance.difficulty > 1)
         {
-            PlayerManager.instance.fruits--;
-            if (PlayerManager.instance.fruits < 0)
-            {
-                Destroy(gameObject);
-            }
+            PlayerManager.instance.OnTakeDamage();
         }
-
 
         PlayerManager.instance.ScreenShake(-_facindDirection);
 

@@ -22,6 +22,7 @@ public class InGame_UI : MonoBehaviour
     private void Start()
     {
         GameManager.instance.levelNumber = SceneManager.GetActiveScene().buildIndex;
+        PlayerManager.instance.inGame_UI = this;
         Time.timeScale = 1;
         Switch_UI(inGame_UI);
     }
@@ -54,6 +55,9 @@ public class InGame_UI : MonoBehaviour
         }
     }
 
+    public void OnDeath(){
+        Switch_UI(pauseMenue_UI);
+    }
     public void On_LevelFinish()
     {
         endFruit_Text.text = "Fruits: " + PlayerManager.instance.fruits;

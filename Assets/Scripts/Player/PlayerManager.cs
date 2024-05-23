@@ -1,5 +1,6 @@
 using UnityEngine;
 using Cinemachine;
+using UnityEditor.Rendering;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -8,8 +9,11 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     public Transform respawnPoint;
     public GameObject currentPlayer;
+    public GameObject playerdeath_FX;
     public int choosenSkinId;
     public int fruits;
+
+    public InGame_UI inGame_UI;
 
     [Header("Camera Shake FX")]
     [SerializeField] private CinemachineImpulseSource impulse;
@@ -45,11 +49,66 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    private bool HaveEnoughFruits()
+    {
+        if (fruits > 0)
+        {
+            fruits--;
+            if (fruits < 0)
+            {
+                fruits = 0;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public void OnTakeDamage()
+    {
+        if (HaveEnoughFruits())
+        {
+            Debug.Log("Fruits Droped");
+        }
+        else
+        {
+            KillPlayer();
+            PermanentDeath();
+        }
+    }
+
+    private void PermanentDeath()
+    {
+        if (GameManager.instance.difficulty < 3)
+        {
+            Invoke("PlayerRespawn", 1);
+        }
+        else
+        {
+            inGame_UI.OnDeath();
+        }
+    }
+
+    public void OnFalling()
+    {
+        KillPlayer();
+
+        if (HaveEnoughFruits())
+        {
+            PermanentDeath();
+        }
+    }
+
     public void PlayerRespawn()
     {
         if (currentPlayer == null)
         {
             currentPlayer = Instantiate(playerPrefab, respawnPoint.position, transform.rotation);
         }
+    }
+
+    public void KillPlayer()
+    {
+        GameObject newDeath_FX = Instantiate(playerdeath_FX, currentPlayer.transform.position, currentPlayer.transform.rotation);
+        Destroy(currentPlayer);
     }
 }
