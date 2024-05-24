@@ -1,6 +1,6 @@
 using UnityEngine;
 using Cinemachine;
-using UnityEditor.Rendering;
+using System;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private GameObject playerPrefab;
     public Transform respawnPoint;
+
+    public GameObject fruitPrefab;
     public GameObject currentPlayer;
     public GameObject playerdeath_FX;
     public int choosenSkinId;
@@ -58,44 +60,87 @@ public class PlayerManager : MonoBehaviour
             {
                 fruits = 0;
             }
+
+            DropFruit();
+
             return true;
         }
         return false;
     }
 
+    private void DropFruit()
+    {
+        int fruitIndex = UnityEngine.Random.Range(0, Enum.GetNames(typeof(Fruit_Types)).Length);
+
+        GameObject newFruit = Instantiate(fruitPrefab, currentPlayer.transform.position, transform.rotation);
+        newFruit.GetComponent<Fruit_DroppedByPlayer>().FruitSetup(fruitIndex);
+        Destroy(newFruit, 20);
+    }
+
     public void OnTakeDamage()
     {
-        if (HaveEnoughFruits())
-        {
-            Debug.Log("Fruits Droped");
-        }
-        else
+        if (!HaveEnoughFruits())
         {
             KillPlayer();
-            PermanentDeath();
+
+            if (GameManager.instance.difficulty < 3)
+            {
+                Invoke("PlayerRespawn", 1);
+            }
+            else
+            {
+                inGame_UI.OnDeath();
+            }
         }
     }
 
-    private void PermanentDeath()
-    {
-        if (GameManager.instance.difficulty < 3)
-        {
-            Invoke("PlayerRespawn", 1);
-        }
-        else
-        {
-            inGame_UI.OnDeath();
-        }
-    }
+    // private void PermanentDeath()
+    // {
+    //     if (GameManager.instance.difficulty < 3)
+    //     {
+    //         Invoke("PlayerRespawn", 1);
+    //     }
+    //     else
+    //     {
+    //         inGame_UI.OnDeath();
+    //     }
+    // }
 
     public void OnFalling()
     {
         KillPlayer();
 
-        if (HaveEnoughFruits())
+        int difficulty = GameManager.instance.difficulty;
+
+        if (difficulty < 3)
         {
-            PermanentDeath();
+            Invoke("PlayerRespawn", 1);
+
+            if (difficulty > 1)
+            {
+                HaveEnoughFruits();
+            }
         }
+        else
+        {
+            inGame_UI.OnDeath();
+        }
+
+        // if (difficulty == 1)
+        // {
+        //     Invoke("PlayerRespawn", 1);
+        // }
+
+        // if (difficulty == 2)
+        // {
+        //     HaveEnoughFruits();
+        //     Invoke("PlayerRespawn", 1);
+        // }
+
+        // if (difficulty == 3)
+        // {
+        //     inGame_UI.OnDeath();
+        // }
     }
 
     public void PlayerRespawn()

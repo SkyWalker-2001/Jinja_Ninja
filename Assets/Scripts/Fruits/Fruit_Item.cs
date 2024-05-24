@@ -16,12 +16,12 @@ public enum Fruit_Types
 
 public class Fruit_Item : MonoBehaviour
 {
-    [SerializeField]private Animator anim;
-    [SerializeField]private SpriteRenderer sr;
+    [SerializeField]protected Animator anim;
+    [SerializeField]protected SpriteRenderer sr;
     public Fruit_Types myFruit_Type;
     [SerializeField] private Sprite[] fruit_Image;
     public Fruit_Types fruitTypes;
-    private void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Player_Controller>() != null)
         {
