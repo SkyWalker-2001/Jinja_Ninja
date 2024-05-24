@@ -137,10 +137,16 @@ public class Player_Controller : MonoBehaviour
                 if (_rb.velocity.y < 0)
                 {
                     newEnemy.Damage();
+                    _player_AnimatorController.SetBool("flipping", true);
                     Jump();
                 }
             }
         }
+    }
+
+    private void StopFlippingAnimation()
+    {
+        _player_AnimatorController.SetBool("flipping", false);
     }
 
     private void AnimationController()

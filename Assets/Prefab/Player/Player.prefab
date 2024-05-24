@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6123042420356710440
 Transform:
   m_ObjectHideFlags: 0
@@ -178,6 +178,7 @@ MonoBehaviour:
   _knockBackDirection: {x: 5, y: 10}
   _knockbackTime: 0.5
   _knockbackProtectionTime: 0.7
+  canBeKnocked: 1
 --- !u!70 &2614786844761892618
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
