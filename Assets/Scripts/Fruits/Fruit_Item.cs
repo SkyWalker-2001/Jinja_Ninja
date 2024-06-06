@@ -16,8 +16,8 @@ public enum Fruit_Types
 
 public class Fruit_Item : MonoBehaviour
 {
-    [SerializeField]protected Animator anim;
-    [SerializeField]protected SpriteRenderer sr;
+    [SerializeField] protected Animator anim;
+    [SerializeField] protected SpriteRenderer sr;
     public Fruit_Types myFruit_Type;
     [SerializeField] private Sprite[] fruit_Image;
     public Fruit_Types fruitTypes;
@@ -26,7 +26,10 @@ public class Fruit_Item : MonoBehaviour
         if (other.GetComponent<Player_Controller>() != null)
         {
             PlayerManager.instance.fruits++;
-            Destroy(this.gameObject); 
+            
+            AudioManager.instance.PlaySFX(7);
+
+            Destroy(this.gameObject);
 
             // gamemanager.fruits += player.fruits;
         }

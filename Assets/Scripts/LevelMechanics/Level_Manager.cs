@@ -34,13 +34,13 @@ public class Level_Manager : MonoBehaviour
 
     private void AssignLevelBoolean()
     {
-         for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
+        for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             bool unlocked = PlayerPrefs.GetInt("Level" + i + "Unlocked") == 1;
 
-            if(unlocked)
+            if (unlocked)
             {
-               levelOpen[i] = true;
+                levelOpen[i] = true;
             }
             else
             {
@@ -52,36 +52,41 @@ public class Level_Manager : MonoBehaviour
 
     public void LoadSceneMode(String sceneToLoad)
     {
+        AudioManager.instance.PlaySFX(4);
         GameManager.instance.SaveGame_Difficulty();
         SceneManager.LoadScene(sceneToLoad);
     }
 
-    public void LoadNewGame(){
+    public void LoadNewGame()
+    {
 
         // 0 is mainMenue
         // 1 is default level always available
+        AudioManager.instance.PlaySFX(4);
 
         for (int i = 2; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             bool unlocked = PlayerPrefs.GetInt("Level" + i + "Unlocked") == 1;
 
-            if(unlocked)
+            if (unlocked)
                 PlayerPrefs.SetInt("Level" + i + "Unlocked", 0);
             else
                 SceneManager.LoadScene("Level 1");
-                return;
+            return;
         }
     }
 
     public void LoadToContinue()
     {
+        AudioManager.instance.PlaySFX(4);
+
         for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             bool unlocked = PlayerPrefs.GetInt("Level" + i + "Unlocked") == 1;
 
-            if(!unlocked)
+            if (!unlocked)
             {
-                SceneManager.LoadScene("Level " + (i-1));
+                SceneManager.LoadScene("Level " + (i - 1));
                 return;
             }
 

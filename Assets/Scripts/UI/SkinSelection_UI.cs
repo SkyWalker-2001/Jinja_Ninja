@@ -20,6 +20,8 @@ public class SkinSelection_UI : MonoBehaviour
 
     public void Next_Skin()
     {
+        AudioManager.instance.PlaySFX(4);
+
         skin_ID++;
 
         if (skin_ID > 3)
@@ -30,6 +32,8 @@ public class SkinSelection_UI : MonoBehaviour
 
     public void Previous_Skin()
     {
+        AudioManager.instance.PlaySFX(4);
+
         skin_ID--;
 
         if (skin_ID < 0)
@@ -60,7 +64,7 @@ public class SkinSelection_UI : MonoBehaviour
 
             return true;
         }
-
+        AudioManager.instance.PlaySFX(6);
         return false;
 
     }

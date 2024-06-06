@@ -7,6 +7,11 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _jumpForce;
 
+    [Header("Particle")]
+    [SerializeField] private ParticleSystem dustFX;
+
+    private float dustFxTimer;
+
     private Rigidbody2D _rb;
     private Animator _player_AnimatorController;
 
@@ -14,6 +19,7 @@ public class Player_Controller : MonoBehaviour
     private bool canDoubleJump = true;
     private bool canMove;
 
+    [Header("Move Info")]
     public Vector2 wallJumpDirection;
     public float doubleJumpForce;
     private bool canBeControlled;
@@ -22,6 +28,8 @@ public class Player_Controller : MonoBehaviour
     private bool _facingRight = true;
     private int _facindDirection = 1;
     private float defaultGravityScale;
+
+    private bool readyToLand;
 
     [Header("Collision Info")]
     [SerializeField] float _groundCheckDistance;
@@ -55,6 +63,8 @@ public class Player_Controller : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _player_AnimatorController = GetComponent<Animator>();
+
+        SetPlayerAnimationLayer();
 
         defaultJumpForce = _jumpForce;
 
@@ -95,9 +105,21 @@ public class Player_Controller : MonoBehaviour
             }
 
             _canHaveCayoteJump = true;
+
+            if (readyToLand)
+            {
+                dustFX.Play();
+                readyToLand = false;
+            }
         }
         else
         {
+
+            if (!readyToLand)
+            {
+                readyToLand = true;
+            }
+
             if (_canHaveCayoteJump)
             {
                 _canHaveCayoteJump = false;
@@ -136,6 +158,8 @@ public class Player_Controller : MonoBehaviour
 
                 if (_rb.velocity.y < 0)
                 {
+                    AudioManager.instance.PlaySFX(1);
+
                     newEnemy.Damage();
                     _player_AnimatorController.SetBool("flipping", true);
                     Jump();
@@ -147,6 +171,19 @@ public class Player_Controller : MonoBehaviour
     private void StopFlippingAnimation()
     {
         _player_AnimatorController.SetBool("flipping", false);
+    }
+
+    private void SetPlayerAnimationLayer()
+    {
+        int skinIndex = PlayerManager.instance.choosenSkinId;
+        for (int i = 0; i < _player_AnimatorController.layerCount; i++)
+        {
+            _player_AnimatorController.SetLayerWeight(i, 0);
+            // aada karan naal saria layer da weight 0 means koi ve select nai hunde 1 karna panda weight nuu
+        }
+
+        _player_AnimatorController.SetLayerWeight(skinIndex, 1);
+
     }
 
     private void AnimationController()
@@ -187,6 +224,8 @@ public class Player_Controller : MonoBehaviour
 
     private void Flip_Controller()
     {
+        dustFxTimer -= Time.deltaTime;
+
         if (_facingRight && _rb.velocity.x < 0)
         {
             Flip();
@@ -199,6 +238,12 @@ public class Player_Controller : MonoBehaviour
 
     private void Flip()
     {
+        if (dustFxTimer < 0)
+        {
+            dustFX.Play();
+            dustFxTimer = .7f;
+        }
+
         _facindDirection = _facindDirection * -1;
         _facingRight = !_facingRight;
         transform.Rotate(0, 180, 0);
@@ -236,6 +281,8 @@ public class Player_Controller : MonoBehaviour
 
     public void KnockBack(Transform damageTransform)
     {
+        AudioManager.instance.PlaySFX(9);
+
         if (!canBeKnocked)
         {
             return;
@@ -290,6 +337,10 @@ public class Player_Controller : MonoBehaviour
 
     private void Wall_Jump()
     {
+        AudioManager.instance.PlaySFX(3);
+
+        dustFX.Play();
+
         canMove = false;
 
         _rb.velocity = new Vector2(wallJumpDirection.x * -_facindDirection, wallJumpDirection.y);
@@ -297,10 +348,15 @@ public class Player_Controller : MonoBehaviour
 
     private void Jump()
     {
-        _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
-    }
+        AudioManager.instance.PlaySFX(3);
 
-    // 
+        _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+
+        if (_isGrounded)
+        {
+            dustFX.Play();
+        }
+    }
 
     public void Push_UP(float pushForce)
     {

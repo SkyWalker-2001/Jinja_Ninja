@@ -147,13 +147,18 @@ public class PlayerManager : MonoBehaviour
     {
         if (currentPlayer == null)
         {
+            AudioManager.instance.PlaySFX(11);
+
             currentPlayer = Instantiate(playerPrefab, respawnPoint.position, transform.rotation);
         }
     }
 
     public void KillPlayer()
     {
+        AudioManager.instance.PlaySFX(0);
+
         GameObject newDeath_FX = Instantiate(playerdeath_FX, currentPlayer.transform.position, currentPlayer.transform.rotation);
+        Destroy(newDeath_FX, 1);
         Destroy(currentPlayer);
     }
 }

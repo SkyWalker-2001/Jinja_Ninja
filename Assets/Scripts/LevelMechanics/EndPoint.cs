@@ -16,8 +16,10 @@ public class EndPoint : MonoBehaviour
         if (other.GetComponent<Player_Controller>() != null)
         {
             GetComponent<Animator>().SetTrigger("activate");
-            
-            Destroy(other.gameObject);
+
+            AudioManager.instance.PlaySFX(2);
+
+            PlayerManager.instance.KillPlayer();
 
             inGame_UI.On_LevelFinish();
 
