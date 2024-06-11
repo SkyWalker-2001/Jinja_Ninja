@@ -282,12 +282,12 @@ MonoBehaviour:
   wallCheck: {fileID: 6813890007033764821}
   invincible: 0
   speed: 4
-  aggresive_Speed: 8
   idleTime: 2
-  shockTime: 1
   whatToIgnore:
     serializedVersion: 2
     m_Bits: 513
+  aggresive_Speed: 8
+  shockTime: 1
 --- !u!1 &6054162320223565525
 GameObject:
   m_ObjectHideFlags: 0

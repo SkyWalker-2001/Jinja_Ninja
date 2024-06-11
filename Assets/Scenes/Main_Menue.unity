@@ -14309,10 +14309,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3005187188495477893, guid: 964e8e45139574ae78faba3558e7e42a, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3248765742957136138, guid: 964e8e45139574ae78faba3558e7e42a, type: 3}
       propertyPath: m_Name
       value: Rhino_Enemy
@@ -14949,10 +14945,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8173822910008067125, guid: 5562512606cd44847aa9bf363407e1b4, type: 3}
-      propertyPath: impulse
-      value: 
-      objectReference: {fileID: 8702662203241641190}
-    - target: {fileID: 8173822910008067125, guid: 5562512606cd44847aa9bf363407e1b4, type: 3}
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1353738407}
@@ -14961,17 +14953,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5562512606cd44847aa9bf363407e1b4, type: 3}
---- !u!114 &8702662203241641190 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2401368652504075714, guid: 5562512606cd44847aa9bf363407e1b4, type: 3}
-  m_PrefabInstance: {fileID: 8702662203241641188}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
