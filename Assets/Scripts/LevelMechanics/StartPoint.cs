@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class StartPoint : MonoBehaviour
 {
-    [SerializeField] private Transform resPoint; 
+    [SerializeField] private Transform resPoint;
     private void Awake()
     {
         PlayerManager.instance.respawnPoint = resPoint;
         PlayerManager.instance.PlayerRespawn();
     }
 
+    private void Start()
+    {
+        AudioManager.instance.PlayBGM_Random();
+    }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.GetComponent<Player_Controller>() != null)
         {
-            if(!GameManager.instance.startTimer)
+            if (!GameManager.instance.startTimer)
             {
                 GameManager.instance.startTimer = true;
             }
