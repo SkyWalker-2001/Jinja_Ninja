@@ -147,9 +147,8 @@ public class PlayerManager : MonoBehaviour
     {
         if (currentPlayer == null)
         {
-            AudioManager.instance.PlaySFX(11);
-
             currentPlayer = Instantiate(playerPrefab, respawnPoint.position, transform.rotation);
+            AudioManager.instance.PlaySFX(11);
         }
     }
 
