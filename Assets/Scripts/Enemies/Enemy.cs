@@ -25,10 +25,13 @@ public class Enemy : Danger
 
     [HideInInspector] public bool invincible;
 
+    [Header("Visuall FX")]
+    [SerializeField] private GameObject enemyDeath_FX;
+
     [Header("Move Info")]
     [SerializeField] protected float speed;
     [SerializeField] protected float idleTime = 2f;
-                     protected float idleTimeCounter;
+    protected float idleTimeCounter;
 
     [SerializeField] protected LayerMask whatToIgnore;
 
@@ -40,12 +43,12 @@ public class Enemy : Danger
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        if(PlayerManager.instance.currentPlayer != null)
+        if (PlayerManager.instance.currentPlayer != null)
             player = PlayerManager.instance.currentPlayer.transform;
-        
+
         if (groundCheck == null)
             groundCheck = transform;
-        if(wallCheck == null)
+        if (wallCheck == null)
             wallCheck = transform;
     }
 
@@ -79,8 +82,27 @@ public class Enemy : Danger
         }
     }
 
+    public void EnemyDeath_FX()
+    {
+        if (enemyDeath_FX != null)
+        {
+            GameObject newEnemyDeath_FX = Instantiate(enemyDeath_FX, transform.position, transform.rotation);
+            Destroy(newEnemyDeath_FX, .5f);
+        }
+        if (GetComponent<EnemyFruitDrop_Controller>() != null)
+        {
+            GetComponent<EnemyFruitDrop_Controller>().DropFruit();
+        }
+        else{
+            Debug.Log("You dont have fruitDrop controller on enemy");
+        }
+    }
+
+
+    // used in animation FN
     public void Destroy_Me()
     {
+        EnemyDeath_FX();
         Destroy(this.gameObject);
     }
 
@@ -103,18 +125,18 @@ public class Enemy : Danger
 
     protected virtual void CheckCollision()
     {
-        groundDetected = Physics2D.Raycast(groundCheck .position, Vector2.down, groundCheckDistance, whatIsGround);
-        wallDetected = Physics2D.Raycast(wallCheck .position, Vector2.right * _facingDirection, wallCheckDistance, whatIsGround);
+        groundDetected = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+        wallDetected = Physics2D.Raycast(wallCheck.position, Vector2.right * _facingDirection, wallCheckDistance, whatIsGround);
         playerDetection = Physics2D.Raycast(wallCheck.position, Vector2.right * _facingDirection, 100, ~whatToIgnore);
 
     }
 
     protected virtual void OnDrawGizmos()
     {
-        if(groundCheck != null)
+        if (groundCheck != null)
             Gizmos.DrawLine(groundCheck.position, new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
 
-        if(wallCheck != null)
+        if (wallCheck != null)
         {
             Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + wallCheckDistance * _facingDirection, wallCheck.position.y));
             Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + playerDetection.distance * _facingDirection, wallCheck.position.y));

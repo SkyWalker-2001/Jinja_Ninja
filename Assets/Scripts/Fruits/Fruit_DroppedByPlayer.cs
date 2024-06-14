@@ -5,10 +5,10 @@ using UnityEngine;
 public class Fruit_DroppedByPlayer : Fruit_Item
 {
     [SerializeField] private Vector2 speed;
-    [SerializeField] private Color transparentColor;
-    private bool canPickUp;
+    [SerializeField] protected  Color transparentColor;
+    protected bool canPickUp;
 
-    private void Start()
+    protected virtual void Start()
     {
         StartCoroutine(BlinkImage());
     }
@@ -24,7 +24,7 @@ public class Fruit_DroppedByPlayer : Fruit_Item
             base.OnTriggerEnter2D(other);
     }
 
-    private IEnumerator BlinkImage()
+    protected virtual IEnumerator BlinkImage()
     {
         anim.speed = 0;
         sr.color = transparentColor;
