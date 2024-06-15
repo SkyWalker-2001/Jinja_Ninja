@@ -170,6 +170,7 @@ MonoBehaviour:
   myFruit_Type: 0
   fruit_Image: []
   fruitTypes: 0
+  fruit_PickUp_FX_prefab: {fileID: 8497547463160584745, guid: 381d0aba56b404bdabb82c75fdbbfbf6, type: 3}
   speed: {x: 0, y: 0}
   transparentColor: {r: 1, g: 1, b: 1, a: 0.23529412}
   _rb: {fileID: 955801528684778929}
