@@ -5,14 +5,11 @@ using UnityEngine;
 public class StartPoint : MonoBehaviour
 {
     [SerializeField] private Transform resPoint;
-    private void Awake()
-    {
-        PlayerManager.instance.respawnPoint = resPoint;
-        PlayerManager.instance.PlayerRespawn();
-    }
 
     private void Start()
     {
+        PlayerManager.instance.respawnPoint = resPoint;
+        PlayerManager.instance.PlayerRespawn();
         AudioManager.instance.PlayBGM_Random();
     }
 
