@@ -21,22 +21,13 @@ public class Fruit_Item : MonoBehaviour
     public Fruit_Types myFruit_Type;
     [SerializeField] private Sprite[] fruit_Image;
     public Fruit_Types fruitTypes;
-
-    [SerializeField] private GameObject fruit_PickUp_FX_prefab;
-
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Player_Controller>() != null)
         {
             PlayerManager.instance.fruits++;
-
+            
             AudioManager.instance.PlaySFX(7);
-
-            if (fruit_PickUp_FX_prefab != null)
-            {
-                GameObject newFruit_FX = Instantiate(fruit_PickUp_FX_prefab, transform.position, transform.rotation);
-                Destroy(newFruit_FX, .5f);
-            }
 
             Destroy(this.gameObject);
 
