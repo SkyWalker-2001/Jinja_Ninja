@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-    [SerializeField] private bool pc_Testing;
-
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _jumpForce;
 
@@ -17,6 +15,7 @@ public class Player_Controller : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _player_AnimatorController;
 
+    private float _movingInput;
     private bool canDoubleJump = true;
     private bool canMove;
 
@@ -57,11 +56,6 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float _knockbackProtectionTime;
     private bool _isKnocked;
     [SerializeField] private bool canBeKnocked = true;
-
-    [Header("Mobile Control's")]
-    [SerializeField] public VariableJoystick joystick;
-    private float _h_Input;
-    private float _v_Input;
 
 
 
@@ -209,18 +203,9 @@ public class Player_Controller : MonoBehaviour
     {
         if (!canBeControlled) { return; }
 
-        if (pc_Testing)
-        {
-            _h_Input = Input.GetAxisRaw("Horizontal");
-            _v_Input = Input.GetAxisRaw("Vertical");
-        }
-        else
-        {
-            _h_Input = joystick.Horizontal;
-            _v_Input = joystick.Vertical;
-        }
+        _movingInput = Input.GetAxis("Horizontal");
 
-        if (_v_Input < 0)
+        if (Input.GetAxis("Vertical") < 0)
         {
             _canWallSlide = false;
         }
@@ -264,7 +249,7 @@ public class Player_Controller : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    public void Jump_Button()
+    private void Jump_Button()
     {
         if (!_isGrounded)
         {
@@ -347,7 +332,7 @@ public class Player_Controller : MonoBehaviour
     private void Move()
     {
         if (canMove)
-            _rb.velocity = new Vector2(_h_Input * _moveSpeed, _rb.velocity.y);
+            _rb.velocity = new Vector2(_movingInput * _moveSpeed, _rb.velocity.y);
     }
 
     private void Wall_Jump()

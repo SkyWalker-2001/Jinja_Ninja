@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class InGame_UI : MonoBehaviour
 {
@@ -13,10 +12,6 @@ public class InGame_UI : MonoBehaviour
     [SerializeField] private GameObject pauseMenue_UI;
     [SerializeField] private GameObject endLevel_UI;
 
-    [Header("Controll's")]
-    [SerializeField] private VariableJoystick joystick;
-    [SerializeField] public Button jumpButton;
-
     [Header("Text Components")]
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI currentFruitAmount;
@@ -24,14 +19,10 @@ public class InGame_UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI endBestTime_Text;
     [SerializeField] private TextMeshProUGUI endFruit_Text;
 
-    private void Awake()
-    {
-        PlayerManager.instance.inGame_UI = this;
-    }
-
     private void Start()
     {
         GameManager.instance.levelNumber = SceneManager.GetActiveScene().buildIndex;
+        PlayerManager.instance.inGame_UI = this;
         Time.timeScale = 1;
         Switch_UI(inGame_UI);
     }
@@ -44,13 +35,6 @@ public class InGame_UI : MonoBehaviour
         {
             CheckIfPaused();
         }
-    }
-
-    public void AssignPlayerController(Player_Controller player)
-    {
-        player.joystick = joystick;
-        //jumpButton.onClick.RemoveAllListeners();
-        //jumpButton.onClick.AddListener(player.Jump_Button); 
     }
 
     private bool CheckIfPaused()
@@ -71,8 +55,7 @@ public class InGame_UI : MonoBehaviour
         }
     }
 
-    public void OnDeath()
-    {
+    public void OnDeath(){
         Switch_UI(pauseMenue_UI);
     }
     public void On_LevelFinish()
