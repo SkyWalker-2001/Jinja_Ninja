@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InGame_UI : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class InGame_UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI endBestTime_Text;
     [SerializeField] private TextMeshProUGUI endFruit_Text;
 
+    [Header("OnScreen Controls")]
+    [SerializeField] private VariableJoystick variableJoystick;
+    [SerializeField] private Button jump_Btn;
+
     private void Start()
     {
         GameManager.instance.levelNumber = SceneManager.GetActiveScene().buildIndex;
@@ -35,6 +40,14 @@ public class InGame_UI : MonoBehaviour
         {
             CheckIfPaused();
         }
+    }
+
+    public void AssignPlayer_Controlls(Player_Controller player_Controller)
+    {
+        player_Controller.variableJoystick = variableJoystick;
+
+        jump_Btn.onClick.RemoveAllListeners();
+        jump_Btn.onClick.AddListener(player_Controller.Jump_Button);
     }
 
     private bool CheckIfPaused()
@@ -55,7 +68,8 @@ public class InGame_UI : MonoBehaviour
         }
     }
 
-    public void OnDeath(){
+    public void OnDeath()
+    {
         Switch_UI(pauseMenue_UI);
     }
     public void On_LevelFinish()
