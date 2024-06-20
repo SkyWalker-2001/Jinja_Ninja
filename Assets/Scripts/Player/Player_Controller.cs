@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-    [SerializeField] private bool pc_Testing;
+    [SerializeField] public bool pc_Testing;
 
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _jumpForce;

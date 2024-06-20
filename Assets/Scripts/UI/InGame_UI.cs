@@ -50,8 +50,12 @@ public class InGame_UI : MonoBehaviour
     {
         player_Controller.variableJoystick = variableJoystick;
 
-        jump_Btn.onClick.RemoveAllListeners();
-        jump_Btn.onClick.AddListener(player_Controller.Jump_Button);
+        // if (!player_Controller.pc_Testing)
+        // {
+        //     jump_Btn.onClick.RemoveAllListeners();
+        //     jump_Btn.onClick.AddListener(player_Controller.Jump_Button);
+        // }
+
     }
 
 
@@ -104,7 +108,7 @@ public class InGame_UI : MonoBehaviour
 
         uiMenue.SetActive(true);
 
-        if(uiMenue == inGame_UI)
+        if (uiMenue == inGame_UI)
         {
             variableJoystick.gameObject.SetActive(true);
             jump_Btn.gameObject.SetActive(true);
