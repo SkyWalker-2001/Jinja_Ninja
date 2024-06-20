@@ -24,10 +24,14 @@ public class InGame_UI : MonoBehaviour
     [SerializeField] private VariableJoystick variableJoystick;
     [SerializeField] private Button jump_Btn;
 
+    private void Awake()
+    {
+        PlayerManager.instance.inGame_UI = this;
+    }
+
     private void Start()
     {
         GameManager.instance.levelNumber = SceneManager.GetActiveScene().buildIndex;
-        PlayerManager.instance.inGame_UI = this;
         Time.timeScale = 1;
         Switch_UI(inGame_UI);
     }
@@ -49,6 +53,9 @@ public class InGame_UI : MonoBehaviour
         jump_Btn.onClick.RemoveAllListeners();
         jump_Btn.onClick.AddListener(player_Controller.Jump_Button);
     }
+
+
+    public void PauseButton() => CheckIfPaused();
 
     private bool CheckIfPaused()
     {
@@ -96,6 +103,12 @@ public class InGame_UI : MonoBehaviour
         }
 
         uiMenue.SetActive(true);
+
+        if(uiMenue == inGame_UI)
+        {
+            variableJoystick.gameObject.SetActive(true);
+            jump_Btn.gameObject.SetActive(true);
+        }
     }
 
     public void Load_MainMenue()
